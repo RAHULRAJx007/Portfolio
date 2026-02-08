@@ -2,12 +2,6 @@
 // Utility Functions
 // ===================================
 
-/**
- * Debounce function to limit how often a function can fire
- * @param {Function} func - Function to debounce
- * @param {Number} wait - Wait time in milliseconds
- * @returns {Function}
- */
 const debounce = (func, wait = 10) => {
     let timeout;
     return function executedFunction(...args) {
@@ -20,12 +14,6 @@ const debounce = (func, wait = 10) => {
     };
 };
 
-/**
- * Throttle function to limit function execution frequency
- * @param {Function} func - Function to throttle
- * @param {Number} limit - Limit in milliseconds
- * @returns {Function}
- */
 const throttle = (func, limit = 100) => {
     let inThrottle;
     return function executedFunction(...args) {
@@ -46,7 +34,7 @@ const elements = {
     navMenu: document.getElementById('nav-menu'),
     navLinks: document.querySelectorAll('.nav-link'),
     scrollTopBtn: document.getElementById('scrollTop'),
-    contactForm: document.getElementById('contact-form'),
+    contactForm: document.getElementById('contact-form'), // Note: Only used if using a standard form
     yearSpan: document.getElementById('year'),
     animatedElements: document.querySelectorAll('.service-card, .about-content, .contact-item')
 };
@@ -58,8 +46,6 @@ const toggleMobileMenu = () => {
     const isActive = elements.hamburger.classList.toggle('active');
     elements.navMenu.classList.toggle('active');
     elements.hamburger.setAttribute('aria-expanded', isActive);
-    
-    // Prevent body scroll when menu is open
     document.body.style.overflow = isActive ? 'hidden' : '';
 };
 
@@ -71,28 +57,20 @@ const closeMobileMenu = () => {
 };
 
 // ===================================
-// Navbar Scroll Effects
+// Navbar & Scroll Effects
 // ===================================
-let lastScrollTop = 0;
-
-const handleNavbarScroll = throttle(() => {
+const handleScrollEffects = throttle(() => {
     const currentScroll = window.pageYOffset;
     
-    // Add scrolled class for styling
+    // Navbar background change
     if (currentScroll > 50) {
         elements.navbar.classList.add('scrolled');
     } else {
         elements.navbar.classList.remove('scrolled');
     }
-    
-    lastScrollTop = currentScroll;
-}, 100);
 
-// ===================================
-// Scroll to Top Button
-// ===================================
-const handleScrollTopVisibility = throttle(() => {
-    if (window.pageYOffset > 300) {
+    // Scroll to Top visibility
+    if (currentScroll > 300) {
         elements.scrollTopBtn.classList.add('visible');
     } else {
         elements.scrollTopBtn.classList.remove('visible');
@@ -110,10 +88,10 @@ const scrollToTop = () => {
 // Smooth Scroll for Anchor Links
 // ===================================
 const smoothScrollToSection = (e) => {
-    e.preventDefault();
     const targetId = e.currentTarget.getAttribute('href');
     
     if (targetId.startsWith('#')) {
+        e.preventDefault();
         const target = document.querySelector(targetId);
         if (target) {
             const navbarHeight = elements.navbar.offsetHeight;
@@ -124,7 +102,6 @@ const smoothScrollToSection = (e) => {
                 behavior: 'smooth'
             });
             
-            // Close mobile menu if open
             closeMobileMenu();
         }
     }
@@ -143,217 +120,54 @@ const animateOnScroll = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            // Unobserve after animation to improve performance
             animateOnScroll.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // ===================================
-// Form Submission Handler
+// Initialize Application
 // ===================================
-const handleFormSubmit = async (e) => {
-    const submitButton = elements.contactForm.querySelector('button[type="submit"]');
-    const originalText = submitButton.innerHTML;
+const init = () => {
+    // 1. Set Copyright Year
+    if (elements.yearSpan) {
+        elements.yearSpan.textContent = new Date().getFullYear();
+    }
     
-    // Show loading state
-    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    submitButton.disabled = true;
+    // 2. Setup Event Listeners
+    if (elements.hamburger) {
+        elements.hamburger.addEventListener('click', toggleMobileMenu);
+    }
     
-    // If using Formspree or similar, the form will submit normally
-    // This is just for UX feedback
+    elements.navLinks.forEach(link => {
+        link.addEventListener('click', smoothScrollToSection);
+    });
     
-    // Reset button after a delay (Formspree handles actual submission)
-    setTimeout(() => {
-        submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        setTimeout(() => {
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-        }, 2000);
-    }, 1000);
-};
+    window.addEventListener('scroll', handleScrollEffects);
+    
+    if (elements.scrollTopBtn) {
+        elements.scrollTopBtn.addEventListener('click', scrollToTop);
+    }
 
-// ===================================
-// Typing Effect for Hero Subtitle (Optional)
-// ===================================
-const typeWriterEffect = () => {
-    const subtitle = document.querySelector('.hero-subtitle');
-    if (!subtitle) return;
-    
-    const text = subtitle.textContent;
-    subtitle.textContent = '';
-    let charIndex = 0;
-    
-    const type = () => {
-        if (charIndex < text.length) {
-            subtitle.textContent += text.charAt(charIndex);
-            charIndex++;
-            setTimeout(type, 100);
-        }
-    };
-    
-    // Start typing after a delay
-    setTimeout(type, 500);
-};
-
-// ===================================
-// Initialize Animated Elements
-// ===================================
-const initAnimations = () => {
+    // 3. Initialize Animations
     elements.animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         animateOnScroll.observe(el);
     });
-};
 
-// ===================================
-// Update Copyright Year
-// ===================================
-const updateCopyrightYear = () => {
-    if (elements.yearSpan) {
-        elements.yearSpan.textContent = new Date().getFullYear();
-    }
-};
-
-// ===================================
-// Keyboard Navigation Enhancement
-// ===================================
-const handleKeyboardNavigation = (e) => {
-    // Close mobile menu on Escape key
-    if (e.key === 'Escape' && elements.navMenu.classList.contains('active')) {
-        closeMobileMenu();
-    }
-};
-
-// ===================================
-// Event Listeners Setup
-// ===================================
-const setupEventListeners = () => {
-    // Mobile menu toggle
-    if (elements.hamburger) {
-        elements.hamburger.addEventListener('click', toggleMobileMenu);
-    }
-    
-    // Close mobile menu when clicking nav links
-    elements.navLinks.forEach(link => {
-        link.addEventListener('click', smoothScrollToSection);
+    // 4. Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
     });
-    
-    // Scroll events (debounced/throttled)
-    window.addEventListener('scroll', handleNavbarScroll);
-    window.addEventListener('scroll', handleScrollTopVisibility);
-    
-    // Scroll to top button
-    if (elements.scrollTopBtn) {
-        elements.scrollTopBtn.addEventListener('click', scrollToTop);
-    }
-    
-    // Form submission
-    if (elements.contactForm) {
-        elements.contactForm.addEventListener('submit', handleFormSubmit);
-    }
-    
-    // Smooth scroll for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', smoothScrollToSection);
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', handleKeyboardNavigation);
-    
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (elements.navMenu.classList.contains('active') &&
-            !elements.navMenu.contains(e.target) &&
-            !elements.hamburger.contains(e.target)) {
-            closeMobileMenu();
-        }
-    });
+
+    console.log('Rahul Raj Portfolio initialized');
 };
 
-// ===================================
-// Performance Optimization
-// ===================================
-const optimizePerformance = () => {
-    // Lazy load images (if browser doesn't support native lazy loading)
-    if ('loading' in HTMLImageElement.prototype) {
-        // Native lazy loading is supported
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            if (img.dataset.src) {
-                img.src = img.dataset.src;
-            }
-        });
-    } else {
-        // Fallback for browsers that don't support native lazy loading
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                    }
-                    observer.unobserve(img);
-                }
-            });
-        });
-        
-        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-};
-
-// ===================================
-// Initialize Application
-// ===================================
-const init = () => {
-    // Update copyright year
-    updateCopyrightYear();
-    
-    // Setup all event listeners
-    setupEventListeners();
-    
-    // Initialize animations
-    initAnimations();
-    
-    // Optional: Typing effect
-    // typeWriterEffect();
-    
-    // Performance optimizations
-    optimizePerformance();
-    
-    // Log initialization (remove in production)
-    console.log('Portfolio initialized successfully');
-};
-
-// ===================================
-// DOMContentLoaded Event
-// ===================================
+// Run Init
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
 } else {
     init();
 }
-
-// ===================================
-// Handle Page Visibility Changes
-// ===================================
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        // Page is hidden - pause any animations or timers if needed
-    } else {
-        // Page is visible - resume animations if needed
-    }
-});
-
-// ===================================
-// Expose utility functions globally (optional)
-// ===================================
-window.portfolioUtils = {
-    debounce,
-    throttle,
-    smoothScrollToSection
-};
