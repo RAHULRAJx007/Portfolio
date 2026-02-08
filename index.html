@@ -213,16 +213,32 @@
             </div>
 
             <div class="contact-form-wrapper">
-                <iframe 
-                    src="https://docs.google.com/forms/d/e/1FAIpQLSd1Kvl8E0VFENFsXTxkkObxePid0soPi_VtkJW0zTFuq9tuog/viewform?embedded=true" 
-                    width="100%" 
-                    height="600" 
-                    frameborder="0" 
-                    marginheight="0" 
-                    marginwidth="0"
-                    style="border-radius: 10px; background: transparent;">
-                    Loading…
-                </iframe>
+                <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLSd1Kvl8E0VFENFsXTxkkObxePid0soPi_VtkJW0zTFuq9tuog/formResponse" method="POST" target="hidden_iframe">
+                    
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="entry.123456789" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="entry.987654321" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="entry.000000000" rows="5" placeholder="How can I help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                    
+                    <p id="success-msg" style="display:none; color: #00ff00; margin-top: 15px; text-align: center;">
+                        <i class="fas fa-check-circle"></i> Message sent successfully!
+                    </form>
+
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
             </div>
         </div>
     </div>
