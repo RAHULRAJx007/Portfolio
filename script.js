@@ -1,44 +1,6 @@
 // ===================================
-// Google Form State & Success Handler
-// ===================================
-let submitted = false;
-
-/**
- * Handles the success state after the hidden iframe loads
- */
-const showSuccess = () => {
-    const btn = document.getElementById('form-submit-btn');
-    const msg = document.getElementById('success-msg');
-    const form = document.getElementById('google-form');
-    
-    if (submitted && btn && msg) {
-        // Update Button State
-        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-        btn.classList.add('btn-success'); // Optional: add a green class in CSS
-        
-        // Show success message
-        msg.style.display = 'block';
-        
-        // Clear the form
-        if (form) form.reset();
-        
-        // Reset button and hide message after 5 seconds
-        setTimeout(() => {
-            msg.style.display = 'none';
-            btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-            btn.classList.remove('btn-success');
-            submitted = false; // Reset state for next submission
-        }, 5000);
-    }
-};
-
-// Expose to window so the iframe's onload can trigger it
-window.showSuccess = showSuccess;
-
-// ===================================
 // Utility Functions
 // ===================================
-
 const throttle = (func, limit = 100) => {
     let inThrottle;
     return function executedFunction(...args) {
@@ -65,7 +27,7 @@ const elements = {
 };
 
 // ===================================
-// Mobile Menu Toggle
+// Mobile Menu Logic
 // ===================================
 const toggleMobileMenu = () => {
     const isActive = elements.hamburger.classList.toggle('active');
@@ -75,14 +37,16 @@ const toggleMobileMenu = () => {
 };
 
 const closeMobileMenu = () => {
-    elements.hamburger?.classList.remove('active');
-    elements.navMenu?.classList.remove('active');
-    elements.hamburger?.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    if (elements.hamburger.classList.contains('active')) {
+        elements.hamburger.classList.remove('active');
+        elements.navMenu.classList.remove('active');
+        elements.hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
 };
 
 // ===================================
-// Navbar & Scroll Effects
+// Scroll Effects (Navbar & Back to Top)
 // ===================================
 const handleScrollEffects = throttle(() => {
     const currentScroll = window.pageYOffset;
@@ -110,7 +74,7 @@ const scrollToTop = () => {
 };
 
 // ===================================
-// Smooth Scroll Logic
+// Smooth Scroll for Anchor Links
 // ===================================
 const smoothScrollToSection = (e) => {
     const targetId = e.currentTarget.getAttribute('href');
@@ -159,7 +123,7 @@ const init = () => {
         elements.yearSpan.textContent = new Date().getFullYear();
     }
     
-    // 2. Setup Event Listeners
+    // 2. Setup Navigation Listeners
     if (elements.hamburger) {
         elements.hamburger.addEventListener('click', toggleMobileMenu);
     }
@@ -174,16 +138,43 @@ const init = () => {
         elements.scrollTopBtn.addEventListener('click', scrollToTop);
     }
 
-    // 3. Google Form Submission Handler
+    // 3. FIXED Google Form Submission Handler
+    // This triggers the success UI immediately to avoid iframe sync issues
     if (elements.googleForm) {
         elements.googleForm.addEventListener('submit', () => {
-            submitted = true;
             const btn = document.getElementById('form-submit-btn');
-            if (btn) btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            const msg = document.getElementById('success-msg');
+            const form = elements.googleForm;
+
+            // Show 'Sending' state immediately
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.7';
+
+            // We use a small timeout to let the form data start its journey to the hidden iframe
+            setTimeout(() => {
+                // Update UI to 'Sent'
+                btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+                btn.style.backgroundColor = '#28a745'; // Success green
+                btn.style.opacity = '1';
+
+                if (msg) msg.style.display = 'block';
+
+                // Reset the form fields
+                form.reset();
+
+                // Reset button back to original look after 5 seconds
+                setTimeout(() => {
+                    if (msg) msg.style.display = 'none';
+                    btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+                    btn.style.backgroundColor = ''; // Reverts to CSS default (red)
+                    btn.style.pointerEvents = 'auto';
+                }, 5000);
+            }, 800); 
         });
     }
 
-    // 4. Initialize Animations
+    // 4. Initialize Scroll Animations
     elements.animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -196,7 +187,7 @@ const init = () => {
         if (e.key === 'Escape') closeMobileMenu();
     });
 
-    console.log('Rahul Raj Portfolio initialized');
+    console.log('Rahul Raj Portfolio initialized successfully');
 };
 
 // Run Init
