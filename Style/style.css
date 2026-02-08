@@ -671,10 +671,11 @@ h1, h2, h3 {
 }
 
 .contact-form-wrapper {
-    background: var(--bg-card);
-    padding: 50px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
+    background: #111; /* Matches your dark theme */
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    overflow: hidden; /* Ensures the iframe doesn't spill out */
 }
 
 .form-group {
@@ -863,6 +864,13 @@ h1, h2, h3 {
     }
 }
 
+/* Ensure the iframe scales on mobile */
+@media (max-width: 768px) {
+    .contact-form-wrapper iframe {
+        height: 500px;
+    }
+}
+
 @media (max-width: 640px) {
     .hero-buttons {
         flex-direction: column;
@@ -894,6 +902,7 @@ h1, h2, h3 {
         font-size: 2rem;
     }
 }
+
 
 /* ===================================
    Print Styles
