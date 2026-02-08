@@ -1,4 +1,34 @@
 // ===================================
+// Google Form State & Success Handler
+// ===================================
+let submitted = false;
+
+/**
+ * Handles the success state after the hidden iframe loads
+ */
+const showSuccess = () => {
+    const btn = document.getElementById('form-submit-btn');
+    const msg = document.getElementById('success-msg');
+    const form = document.getElementById('google-form');
+    
+    if (submitted && btn && msg) {
+        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        msg.style.display = 'block';
+        if (form) form.reset();
+        
+        // Reset button and hide message after 5 seconds
+        setTimeout(() => {
+            msg.style.display = 'none';
+            btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
+            submitted = false; // Reset state
+        }, 5000);
+    }
+};
+
+// Expose to window so the iframe's onload can trigger it
+window.showSuccess = showSuccess;
+
+// ===================================
 // Utility Functions
 // ===================================
 
@@ -34,7 +64,7 @@ const elements = {
     navMenu: document.getElementById('nav-menu'),
     navLinks: document.querySelectorAll('.nav-link'),
     scrollTopBtn: document.getElementById('scrollTop'),
-    contactForm: document.getElementById('contact-form'), // Note: Only used if using a standard form
+    googleForm: document.getElementById('google-form'),
     yearSpan: document.getElementById('year'),
     animatedElements: document.querySelectorAll('.service-card, .about-content, .contact-item')
 };
@@ -64,16 +94,16 @@ const handleScrollEffects = throttle(() => {
     
     // Navbar background change
     if (currentScroll > 50) {
-        elements.navbar.classList.add('scrolled');
+        elements.navbar?.classList.add('scrolled');
     } else {
-        elements.navbar.classList.remove('scrolled');
+        elements.navbar?.classList.remove('scrolled');
     }
 
     // Scroll to Top visibility
     if (currentScroll > 300) {
-        elements.scrollTopBtn.classList.add('visible');
+        elements.scrollTopBtn?.classList.add('visible');
     } else {
-        elements.scrollTopBtn.classList.remove('visible');
+        elements.scrollTopBtn?.classList.remove('visible');
     }
 }, 100);
 
@@ -94,7 +124,7 @@ const smoothScrollToSection = (e) => {
         e.preventDefault();
         const target = document.querySelector(targetId);
         if (target) {
-            const navbarHeight = elements.navbar.offsetHeight;
+            const navbarHeight = elements.navbar ? elements.navbar.offsetHeight : 0;
             const targetPosition = target.offsetTop - navbarHeight;
             
             window.scrollTo({
@@ -149,7 +179,17 @@ const init = () => {
         elements.scrollTopBtn.addEventListener('click', scrollToTop);
     }
 
-    // 3. Initialize Animations
+    // 3. Google Form Submission Handler
+    if (elements.googleForm) {
+        elements.googleForm.addEventListener('submit', () => {
+            submitted = true;
+            // Optional: Show loading state on button
+            const btn = document.getElementById('form-submit-btn');
+            if (btn) btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        });
+    }
+
+    // 4. Initialize Animations
     elements.animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -157,12 +197,12 @@ const init = () => {
         animateOnScroll.observe(el);
     });
 
-    // 4. Keyboard Navigation
+    // 5. Keyboard Navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeMobileMenu();
     });
 
-    console.log('Rahul Raj Portfolio initialized');
+    console.log('Rahul Raj Portfolio initialized successfully');
 };
 
 // Run Init

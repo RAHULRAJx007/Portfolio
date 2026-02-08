@@ -187,59 +187,60 @@
     </section>
 
     <!-- Contact Section -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Get In Touch</span>
-            <br>
-            <h2 class="section-title">Let's Work Together</h2>
-        </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text"><span>Email</span><p>rahulx122003@gmail.com</p></div>
+            <section class="contact" id="contact">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="section-tag">Get In Touch</span>
+                        <br>
+                        <h2 class="section-title">Let's Work Together</h2>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-text"><span>Phone</span><p>+91 70340 06336</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text"><span>Location</span><p>Amaravilla, Thiruvananthapuram</p></div>
-                    </div>
-                </div>
-            </div>
+                    <div class="contact-wrapper">
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                    <div class="contact-text"><span>Email</span><p>rahulx122003@gmail.com</p></div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                                    <div class="contact-text"><span>Phone</span><p>+91 70340 06336</p></div>
+                                </div>
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                    <div class="contact-text"><span>Location</span><p>Amaravilla, Thiruvananthapuram</p></div>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="contact-form-wrapper">
+                        <div class="contact-form-wrapper">
                 <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLSd1Kvl8E0VFENFsXTxkkObxePid0soPi_VtkJW0zTFuq9tuog/formResponse" method="POST" target="hidden_iframe">
                     
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" name="entry.123456789" placeholder="Your Name" required>
+                        <input type="text" name="entry.1725512658" placeholder="Your Name" required>
                     </div>
 
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="email" name="entry.987654321" placeholder="your.email@example.com" required>
+                        <input type="email" name="entry.659823962" placeholder="your.email@example.com" required>
                     </div>
 
                     <div class="form-group">
                         <label>Message</label>
-                        <textarea name="entry.000000000" rows="5" placeholder="How can I help you?" required></textarea>
+                        <textarea name="entry.1154305402" rows="5" placeholder="How can I help you?" required></textarea>
                     </div>
 
                     <button type="submit" class="btn btn-primary btn-full" id="form-submit-btn">
                         Send Message <i class="fas fa-paper-plane"></i>
                     </button>
                     
-                    <p id="success-msg" style="display:none; color: #00ff00; margin-top: 15px; text-align: center;">
+                    <div id="success-msg" style="display:none; color: #ff0000; margin-top: 15px; text-align: center; font-weight: bold;">
                         <i class="fas fa-check-circle"></i> Message sent successfully!
-                    </form>
+                    </div>
+                </form>
 
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {showSuccess();}"></iframe>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) { showSuccess(); }"></iframe>
             </div>
         </div>
     </div>
