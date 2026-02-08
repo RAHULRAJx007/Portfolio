@@ -12,15 +12,22 @@ const showSuccess = () => {
     const form = document.getElementById('google-form');
     
     if (submitted && btn && msg) {
+        // Update Button State
         btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        btn.classList.add('btn-success'); // Optional: add a green class in CSS
+        
+        // Show success message
         msg.style.display = 'block';
+        
+        // Clear the form
         if (form) form.reset();
         
         // Reset button and hide message after 5 seconds
         setTimeout(() => {
             msg.style.display = 'none';
             btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-            submitted = false; // Reset state
+            btn.classList.remove('btn-success');
+            submitted = false; // Reset state for next submission
         }, 5000);
     }
 };
@@ -31,18 +38,6 @@ window.showSuccess = showSuccess;
 // ===================================
 // Utility Functions
 // ===================================
-
-const debounce = (func, wait = 10) => {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-};
 
 const throttle = (func, limit = 100) => {
     let inThrottle;
@@ -80,9 +75,9 @@ const toggleMobileMenu = () => {
 };
 
 const closeMobileMenu = () => {
-    elements.hamburger.classList.remove('active');
-    elements.navMenu.classList.remove('active');
-    elements.hamburger.setAttribute('aria-expanded', 'false');
+    elements.hamburger?.classList.remove('active');
+    elements.navMenu?.classList.remove('active');
+    elements.hamburger?.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
 };
 
@@ -115,12 +110,12 @@ const scrollToTop = () => {
 };
 
 // ===================================
-// Smooth Scroll for Anchor Links
+// Smooth Scroll Logic
 // ===================================
 const smoothScrollToSection = (e) => {
     const targetId = e.currentTarget.getAttribute('href');
     
-    if (targetId.startsWith('#')) {
+    if (targetId && targetId.startsWith('#')) {
         e.preventDefault();
         const target = document.querySelector(targetId);
         if (target) {
@@ -183,7 +178,6 @@ const init = () => {
     if (elements.googleForm) {
         elements.googleForm.addEventListener('submit', () => {
             submitted = true;
-            // Optional: Show loading state on button
             const btn = document.getElementById('form-submit-btn');
             if (btn) btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         });
@@ -202,7 +196,7 @@ const init = () => {
         if (e.key === 'Escape') closeMobileMenu();
     });
 
-    console.log('Rahul Raj Portfolio initialized successfully');
+    console.log('Rahul Raj Portfolio initialized');
 };
 
 // Run Init

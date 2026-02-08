@@ -187,34 +187,37 @@
     </section>
 
     <!-- Contact Section -->
-            <section class="contact" id="contact">
-                <div class="container">
-                    <div class="section-header">
-                        <span class="section-tag">Get In Touch</span>
-                        <br>
-                        <h2 class="section-title">Let's Work Together</h2>
+<section class="contact" id="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Get In Touch</span>
+            <br>
+            <h2 class="section-title">Let's Work Together</h2>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text"><span>Email</span><p>rahulx122003@gmail.com</p></div>
                     </div>
-                    <div class="contact-wrapper">
-                        <div class="contact-info">
-                            <h3>Contact Information</h3>
-                            <div class="contact-details">
-                                <div class="contact-item">
-                                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                                    <div class="contact-text"><span>Email</span><p>rahulx122003@gmail.com</p></div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                                    <div class="contact-text"><span>Phone</span><p>+91 70340 06336</p></div>
-                                </div>
-                                <div class="contact-item">
-                                    <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <div class="contact-text"><span>Location</span><p>Amaravilla, Thiruvananthapuram</p></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-text"><span>Phone</span><p>+91 70340 06336</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text"><span>Location</span><p>Amaravilla, Thiruvananthapuram</p></div>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="contact-form-wrapper">
-                <form id="google-form" action="https://docs.google.com/forms/d/e/1FAIpQLSd1Kvl8E0VFENFsXTxkkObxePid0soPi_VtkJW0zTFuq9tuog/formResponse" method="POST" target="hidden_iframe">
+            <div class="contact-form-wrapper">
+                <form id="google-form" 
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSd1Kvl8E0VFENFsXTxkkObxePid0soPi_VtkJW0zTFuq9tuog/formResponse" 
+                    method="POST" 
+                    target="hidden_iframe">
                     
                     <div class="form-group">
                         <label>Full Name</label>
@@ -235,12 +238,13 @@
                         Send Message <i class="fas fa-paper-plane"></i>
                     </button>
                     
-                    <div id="success-msg" style="display:none; color: #ff0000; margin-top: 15px; text-align: center; font-weight: bold;">
+                    <div id="success-msg" style="display:none; color: #00ff00; margin-top: 15px; text-align: center; font-weight: bold;">
                         <i class="fas fa-check-circle"></i> Message sent successfully!
                     </div>
                 </form>
 
-                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof submitted !== 'undefined' && submitted) { showSuccess(); }"></iframe>
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+                        onload="if(typeof submitted !== 'undefined' && submitted) { showSuccess(); }"></iframe>
             </div>
         </div>
     </div>
