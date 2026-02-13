@@ -563,6 +563,211 @@ h1, h2, h3 {
 }
 
 /* ===================================
+   Projects Section
+   =================================== */
+.projects {
+    padding: var(--section-padding) 0;
+    background: var(--bg-card);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 0, 0.3);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card.featured {
+    grid-column: 1 / -1;
+    flex-direction: row;
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.project-card.featured .project-image {
+    width: 50%;
+    height: auto;
+    min-height: 400px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-completed {
+    background: #28a745;
+    color: white;
+}
+
+.status-progress {
+    background: var(--primary);
+    color: white;
+}
+
+.project-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card.featured .project-content {
+    width: 50%;
+    justify-content: center;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-header h3 {
+    font-size: 1.8rem;
+    color: var(--accent);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    transition: var(--transition);
+}
+
+.project-link:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.project-description {
+    color: var(--text-light);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.project-features {
+    margin-bottom: 25px;
+}
+
+.project-features h4 {
+    color: var(--accent);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.project-features ul {
+    list-style: none;
+}
+
+.project-features li {
+    color: var(--text-light);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.project-features li i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.project-tech span {
+    padding: 6px 14px;
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+/* Responsive Projects */
+@media (max-width: 968px) {
+    .project-card.featured {
+        flex-direction: column;
+    }
+    
+    .project-card.featured .project-image,
+    .project-card.featured .project-content {
+        width: 100%;
+    }
+    
+    .project-card.featured .project-image {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-header h3 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ===================================
    Resume Section
    =================================== */
 .resume {
@@ -671,11 +876,11 @@ h1, h2, h3 {
 }
 
 .contact-form-wrapper {
-    background: #111; /* Matches your dark theme */
+    background: #181717; /* Matches your dark theme */
     padding: 20px;
     border-radius: 15px;
-    border: 1px solid #333;
-    border: none;
+    border: 1px solid #ffffff;
+    /* border: none; */
     overflow: hidden; /* Ensures the iframe doesn't spill out */
 }
 
