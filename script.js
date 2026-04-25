@@ -196,3 +196,175 @@ if (document.readyState === 'loading') {
 } else {
     init();
 }
+// ===================================
+// PREMIUM UPGRADES
+// ===================================
+
+// ── Loading bar ──
+const loadingBar = document.createElement('div');
+loadingBar.id = 'loading-bar';
+loadingBar.style.width = '0%';
+document.body.prepend(loadingBar);
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    loadingBar.style.width = progress + '%';
+}, { passive: true });
+
+// ── Cursor glow ──
+const cursorGlow = document.createElement('div');
+cursorGlow.className = 'cursor-glow';
+document.body.appendChild(cursorGlow);
+
+document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+});
+
+// ── Particle canvas on hero ──
+(function initParticles() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const canvas = document.createElement('canvas');
+    canvas.id = 'particles-canvas';
+    hero.prepend(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animFrameId;
+
+    const resize = () => {
+        canvas.width = hero.offsetWidth;
+        canvas.height = hero.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    const COUNT = 60;
+    for (let i = 0; i < COUNT; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.5 + 0.5,
+            dx: (Math.random() - 0.5) * 0.4,
+            dy: (Math.random() - 0.5) * 0.4,
+            o: Math.random() * 0.5 + 0.1
+        });
+    }
+
+    const draw = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 60, 60, ${p.o})`;
+            ctx.fill();
+            p.x += p.dx;
+            p.y += p.dy;
+            if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                if (dist < 100) {
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(255,60,60,${0.08 * (1 - dist / 100)})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        animFrameId = requestAnimationFrame(draw);
+    };
+    draw();
+})();
+
+// ── Typewriter effect on hero subtitle ──
+(function typewriter() {
+    const el = document.querySelector('.hero-subtitle');
+    if (!el) return;
+    const text = el.textContent.trim();
+    el.textContent = '';
+    el.style.borderRight = '2px solid #ff0000';
+    let i = 0;
+    const type = () => {
+        if (i < text.length) {
+            el.textContent += text[i++];
+            setTimeout(type, 60);
+        } else {
+            // Blink cursor then remove
+            setTimeout(() => { el.style.borderRight = 'none'; }, 2000);
+        }
+    };
+    setTimeout(type, 800);
+})();
+
+// ── Active nav link on scroll ──
+(function initActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => obs.observe(s));
+})();
+
+// ── Improved scroll reveal (fixes opacity stuck at 0 bug) ──
+(function fixReveal() {
+    const all = document.querySelectorAll('.project-card, .service-card, .contact-item, .about-content, .about-image-wrapper');
+    
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    all.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        obs.observe(el);
+    });
+})();
+
+// ── Add project number badges ──
+(function addBadges() {
+    document.querySelectorAll('.project-card').forEach((card, i) => {
+        const badge = document.createElement('span');
+        badge.className = 'project-num-badge';
+        badge.textContent = String(i + 1).padStart(2, '0');
+        card.style.position = 'relative';
+        card.appendChild(badge);
+    });
+})();
+
+// ── Noise texture on hero ──
+(function addNoise() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+    const noise = document.createElement('div');
+    noise.className = 'hero-noise';
+    hero.appendChild(noise);
+})();
+
+console.log('Premium portfolio initialized ✓');

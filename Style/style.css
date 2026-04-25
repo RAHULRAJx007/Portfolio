@@ -1152,3 +1152,329 @@ h1, h2, h3 {
         display: none;
     }
 }
+/* ===================================
+   PREMIUM UPGRADES
+   =================================== */
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+/* Selection color */
+::selection { background: rgba(255,0,0,0.3); color: white; }
+
+/* ── Hero upgrades ── */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255,0,0,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 80% 80%, rgba(255,0,0,0.06) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content { z-index: 2; }
+
+/* Glowing name */
+.hero-title {
+    background: linear-gradient(135deg, #ffffff 0%, #ff4444 50%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 30px rgba(255,0,0,0.25));
+}
+
+/* Typewriter cursor on subtitle */
+.hero-subtitle {
+    position: relative;
+    display: inline-block;
+}
+
+/* Animated underline on greeting */
+.hero-greeting {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.hero-greeting::before,
+.hero-greeting::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Floating particles canvas */
+#particles-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+/* ── Nav upgrades ── */
+.navbar {
+    border-bottom: 1px solid rgba(255,0,0,0.08);
+}
+
+.navbar.scrolled {
+    background: rgba(8, 8, 8, 0.97);
+    border-bottom-color: rgba(255,0,0,0.15);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 0 60px rgba(255,0,0,0.04);
+}
+
+.nav-link.active {
+    color: var(--primary);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* ── Section upgrades ── */
+.section-tag {
+    position: relative;
+    overflow: hidden;
+}
+
+.section-tag::before {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* ── About upgrades ── */
+.about-image::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, rgba(255,0,0,0.4), transparent 50%, rgba(255,0,0,0.1));
+    z-index: -1;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.about-image:hover::after { opacity: 1; }
+
+/* ── Service card upgrades ── */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,0,0,0.03) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+.service-card:hover::after { opacity: 1; }
+
+/* ── Project card upgrades ── */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover::after {
+    transform: scaleX(1);
+}
+
+/* Project number badge */
+.project-card .project-num-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.03);
+    font-family: 'Space Grotesk', sans-serif;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+    transition: color 0.3s;
+}
+
+.project-card:hover .project-num-badge {
+    color: rgba(255,0,0,0.06);
+}
+
+/* ── Freelance badge on status ── */
+.status-freelance {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    color: white;
+    box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+/* ── Contact form upgrades ── */
+.contact-form-wrapper {
+    border: 1px solid rgba(255,0,0,0.2) !important;
+    background: linear-gradient(135deg, #181717 0%, #1a1010 100%) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255,0,0,0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* ── Scroll to top glow ── */
+.scroll-top {
+    box-shadow: 0 0 20px rgba(255,0,0,0.4), 0 4px 15px rgba(255,0,0,0.3);
+}
+
+.scroll-top:hover {
+    box-shadow: 0 0 30px rgba(255,0,0,0.6), 0 8px 25px rgba(255,0,0,0.4);
+}
+
+/* ── Footer upgrade ── */
+.footer {
+    border-top: 1px solid rgba(255,0,0,0.15);
+    background: #050505 !important;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+/* ── Reveal animation for all cards ── */
+.project-card,
+.service-card,
+.contact-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1), border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Stagger children */
+.projects-grid .project-card:nth-child(1) { transition-delay: 0.05s; }
+.projects-grid .project-card:nth-child(2) { transition-delay: 0.1s; }
+.projects-grid .project-card:nth-child(3) { transition-delay: 0.15s; }
+.projects-grid .project-card:nth-child(4) { transition-delay: 0.2s; }
+.projects-grid .project-card:nth-child(5) { transition-delay: 0.25s; }
+
+.services-grid .service-card:nth-child(1) { transition-delay: 0.05s; }
+.services-grid .service-card:nth-child(2) { transition-delay: 0.1s; }
+.services-grid .service-card:nth-child(3) { transition-delay: 0.15s; }
+
+/* ── Glow on project tech tags hover ── */
+.project-tech span:hover {
+    box-shadow: 0 0 12px rgba(255,0,0,0.4);
+}
+
+/* ── Loading bar at top ── */
+#loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff0000, #ff6666, #ff0000);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s linear infinite;
+    z-index: 9999;
+    transition: width 0.3s ease, opacity 0.5s ease;
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ── Cursor glow ── */
+.cursor-glow {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,0,0,0.04) 0%, transparent 70%);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+}
+
+/* ── Noise texture overlay on hero ── */
+.hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
+
+/* ── Active nav pill ── */
+.nav-link.active {
+    color: var(--primary);
+}
+
+/* ── Premium project image overlay gradient ── */
+.project-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(13,13,13,0.3) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover .project-image::after {
+    opacity: 0;
+}
