@@ -368,3 +368,114 @@ document.addEventListener('mousemove', (e) => {
 })();
 
 console.log('Premium portfolio initialized ✓');
+
+
+// ===================================
+// LIGHTBOX — Full-screen image viewer
+// ===================================
+(function initLightbox() {
+    const lightbox  = document.getElementById('lightbox');
+    const backdrop  = document.getElementById('lightbox-backdrop');
+    const img       = document.getElementById('lightbox-img');
+    const loader    = document.getElementById('lightbox-loader');
+    const caption   = document.getElementById('lightbox-caption');
+    const counter   = document.getElementById('lightbox-counter');
+    const closeBtn  = document.getElementById('lightbox-close');
+    const prevBtn   = document.getElementById('lightbox-prev');
+    const nextBtn   = document.getElementById('lightbox-next');
+
+    if (!lightbox || !img) return;
+
+    let triggers = [];
+    let currentIndex = 0;
+
+    // Collect triggers AFTER DOM is ready
+    function collectTriggers() {
+        triggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+    }
+
+    // ── Open ──
+    function open(index) {
+        collectTriggers();
+        currentIndex = Math.max(0, Math.min(index, triggers.length - 1));
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        loadImage(currentIndex);
+    }
+
+    // ── Close ──
+    function close() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+        img.src = '';
+    }
+
+    // ── Load image ──
+    function loadImage(index) {
+        const trigger = triggers[index];
+        if (!trigger) return;
+
+        loader.classList.add('visible');
+        img.style.opacity = '0';
+
+        const src = trigger.getAttribute('src') || trigger.src;
+        const alt = trigger.getAttribute('alt') || '';
+        const cap = trigger.getAttribute('data-caption') || alt;
+
+        img.onload = () => {
+            loader.classList.remove('visible');
+            img.style.opacity = '1';
+        };
+        img.onerror = () => loader.classList.remove('visible');
+        img.src = src;
+        img.alt = alt;
+
+        caption.textContent = cap;
+        counter.textContent = triggers.length > 1 ? `${index + 1} / ${triggers.length}` : '';
+
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === triggers.length - 1;
+    }
+
+    function prev() { if (currentIndex > 0) loadImage(--currentIndex); }
+    function next() { if (currentIndex < triggers.length - 1) loadImage(++currentIndex); }
+
+    // ── Bind clicks using event delegation on document ──
+    // This fires even if other overlays are present
+    document.addEventListener('click', function(e) {
+        const trigger = e.target.closest('.lightbox-trigger');
+        if (trigger) {
+            e.preventDefault();
+            e.stopPropagation();
+            collectTriggers();
+            const index = triggers.indexOf(trigger);
+            open(index >= 0 ? index : 0);
+        }
+    }, true); // useCapture = true — fires before anything else
+
+    // ── Controls ──
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (backdrop)  backdrop.addEventListener('click', close);
+    if (prevBtn)   prevBtn.addEventListener('click', prev);
+    if (nextBtn)   nextBtn.addEventListener('click', next);
+
+    // ── Keyboard ──
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape')     close();
+        if (e.key === 'ArrowLeft')  prev();
+        if (e.key === 'ArrowRight') next();
+    });
+
+    // ── Touch swipe on mobile ──
+    let touchStartX = 0;
+    lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+    });
+
+    // Make cursor show zoom-in on all triggers
+    collectTriggers();
+    triggers.forEach(el => { el.style.cursor = 'zoom-in'; });
+})();

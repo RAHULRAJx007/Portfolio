@@ -53,7 +53,7 @@
             <p class="hero-greeting">Hello, I'm</p>
             <h1 class="hero-title">Rahul Raj . R</h1>
             <h2 class="hero-subtitle">Java Full Stack Developer</h2>
-            <p class="hero-description">An enthusiastic B.E. Computer Science student and go-getter. I bridge the gap between complex backend logic and seamless user experiences.</p>
+            <p class="hero-description">A passionate Java Full Stack Developer who bridges complex backend logic with seamless user experiences. Ready to build, ship, and scale.</p>
             <div class="hero-buttons">
                 <a href="#contact" class="btn btn-primary">Let's Talk</a>
                 <a href="#resume" class="btn btn-secondary">View Resume</a>
@@ -97,21 +97,21 @@
                     </div>
                 </div>
                 <div class="about-content">
-                    <h3>Passionate Developer & Engineering Student</h3>
-                    <p>I am currently pursuing my <strong>B.E. in Computer Science</strong> at Arunachala Hi-Tech Engineering College. My journey is fueled by a passion for solving real-world problems through clean code and efficient architecture.</p>
-                    <p>With hands-on internship experience in <strong>Front-End Development</strong> and ongoing intensive training in <strong>Java Full Stack</strong>, I specialize in building robust applications using Spring Boot and React.</p>
+                    <h3>Java Full Stack Developer</h3>
+                    <p>I hold a <strong>B.E. in Computer Science</strong> from Arunachala Hi-Tech Engineering College, graduating with a <strong>CGPA of 8.1</strong>. My journey is driven by a passion for solving real-world problems through clean code and efficient architecture.</p>
+                    <p>With hands-on experience in <strong>Front-End Development</strong> and intensive training in <strong>Java Full Stack</strong>, I build robust applications using Spring Boot and React — and I've already delivered freelance projects for real clients.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">2025</span>
-                            <span class="stat-label">Graduation Year</span>
+                            <span class="stat-number">B.E.</span>
+                            <span class="stat-label">CS Graduate</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">Java</span>
                             <span class="stat-label">Core Expertise</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">84%</span>
-                            <span class="stat-label">Higher Secondary</span>
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Projects Shipped</span>
                         </div>
                     </div>
                     <a href="#contact" class="btn btn-primary">Work With Me</a>
@@ -178,8 +178,9 @@
                 <!-- Project 1: SliceHub -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/SliceHub.png" alt="SliceHub Pizza Ordering System" loading="lazy">
+                        <img src="assets/SliceHub.png" alt="SliceHub Pizza Ordering System" loading="lazy" class="lightbox-trigger" data-caption="SliceHub — Full-Stack Pizza Ordering Platform">
                         <div class="project-status status-completed">Completed</div>
+                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -217,8 +218,9 @@
                 <!-- Project 2: Scope India Website -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/Scopeindia.png" alt="Scope India Website Replication" loading="lazy">
+                        <img src="assets/Scopeindia.png" alt="Scope India Website Replication" loading="lazy" class="lightbox-trigger" data-caption="Scope India — Website Replication">
                         <div class="project-status status-completed">Completed</div>
+                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -253,8 +255,9 @@
                 <!-- Project 3: Facial Recognition Attendance -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/facerec.png" alt="Facial Recognition Attendance System" loading="lazy">
+                        <img src="assets/facerec.png" alt="Facial Recognition Attendance System" loading="lazy" class="lightbox-trigger" data-caption="Real-Time Facial Recognition Attendance System — Final Year Project">
                         <div class="project-status status-completed">Final Year Project</div>
+                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -288,8 +291,9 @@
                 <!-- Project 4: Project Tracker (Velozity Assessment) -->
                     <article class="project-card">
                         <div class="project-image">
-                            <img src="assets/job1.png" alt="Project Tracker Dashboard" loading="lazy">
+                            <img src="assets/job1.png" alt="Project Tracker Dashboard" loading="lazy" class="lightbox-trigger" data-caption="Project Tracker UI — Velozity Global Solutions Assessment">
                             <div class="project-status status-completed">Completed</div>
+                            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
                         </div>
 
                         <div class="project-content">
@@ -331,8 +335,9 @@
                 <!-- Project 5: Nishanth Kasani Portfolio -->
                 <article class="project-card">
                     <div class="project-image">
-                        <img src="assets/portfolio_project_1.png" alt="Nishanth Kasani Engineering Portfolio" loading="lazy">
+                        <img src="assets/portfolio_project_1.png" alt="Nishanth Kasani Engineering Portfolio" loading="lazy" class="lightbox-trigger" data-caption="Engineering Portfolio — Nishanth Kasani · Freelance Project">
                         <div class="project-status status-completed">Freelance — Completed</div>
+                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
                     </div>
                     <div class="project-content">
                         <div class="project-header">
@@ -465,6 +470,30 @@
     <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+        <div class="lightbox-container">
+            <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-img-wrap">
+                <img src="" alt="" id="lightbox-img" />
+                <div class="lightbox-loader" id="lightbox-loader">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
