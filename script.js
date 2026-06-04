@@ -138,41 +138,8 @@ const init = () => {
         elements.scrollTopBtn.addEventListener('click', scrollToTop);
     }
 
-    // 3. FIXED Google Form Submission Handler
-    // This triggers the success UI immediately to avoid iframe sync issues
-    if (elements.googleForm) {
-        elements.googleForm.addEventListener('submit', () => {
-            const btn = document.getElementById('form-submit-btn');
-            const msg = document.getElementById('success-msg');
-            const form = elements.googleForm;
+// 3. Google Form submission handler removed (contact form removed in index.html)
 
-            // Show 'Sending' state immediately
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            btn.style.pointerEvents = 'none';
-            btn.style.opacity = '0.7';
-
-            // We use a small timeout to let the form data start its journey to the hidden iframe
-            setTimeout(() => {
-                // Update UI to 'Sent'
-                btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-                btn.style.backgroundColor = '#28a745'; // Success green
-                btn.style.opacity = '1';
-
-                if (msg) msg.style.display = 'block';
-
-                // Reset the form fields
-                form.reset();
-
-                // Reset button back to original look after 5 seconds
-                setTimeout(() => {
-                    if (msg) msg.style.display = 'none';
-                    btn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-                    btn.style.backgroundColor = ''; // Reverts to CSS default (red)
-                    btn.style.pointerEvents = 'auto';
-                }, 5000);
-            }, 800); 
-        });
-    }
 
     // 4. Initialize Scroll Animations
     elements.animatedElements.forEach(el => {
@@ -292,21 +259,29 @@ document.addEventListener('mousemove', (e) => {
 (function typewriter() {
     const el = document.querySelector('.hero-subtitle');
     if (!el) return;
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) return; // don't animate for reduced-motion users
+
     const text = el.textContent.trim();
     el.textContent = '';
-    el.style.borderRight = '2px solid #ff0000';
+    el.style.borderRight = '2px solid var(--primary, #ff0000)';
+
     let i = 0;
     const type = () => {
         if (i < text.length) {
             el.textContent += text[i++];
             setTimeout(type, 60);
         } else {
-            // Blink cursor then remove
-            setTimeout(() => { el.style.borderRight = 'none'; }, 2000);
+            setTimeout(() => {
+                el.style.borderRight = 'none';
+            }, 2000);
         }
     };
+
     setTimeout(type, 800);
 })();
+
 
 // ── Active nav link on scroll ──
 (function initActiveNav() {
@@ -326,26 +301,12 @@ document.addEventListener('mousemove', (e) => {
     sections.forEach(s => obs.observe(s));
 })();
 
-// ── Improved scroll reveal (fixes opacity stuck at 0 bug) ──
+// ── Improved scroll reveal (deduped: handled by animateOnScroll in init) ──
+// Keeping this empty prevents double observers that can cause “wrong divs”/stuck styles.
 (function fixReveal() {
-    const all = document.querySelectorAll('.project-card, .service-card, .contact-item, .about-content, .about-image-wrapper');
-    
-    const obs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                obs.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    all.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        obs.observe(el);
-    });
+    // no-op
 })();
+
 
 // ── Add project number badges ──
 (function addBadges() {
@@ -478,4 +439,90 @@ console.log('Premium portfolio initialized ✓');
     // Make cursor show zoom-in on all triggers
     collectTriggers();
     triggers.forEach(el => { el.style.cursor = 'zoom-in'; });
+})();
+
+// ===================================
+// CERTIFICATES — Lightbox integration
+// ===================================
+(function initCertificateLightbox() {
+    const certificateButtons = document.querySelectorAll('.certificate-view-btn');
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    const counter = document.getElementById('lightbox-counter');
+    const backdrop = document.getElementById('lightbox-backdrop');
+    const closeBtn = document.getElementById('lightbox-close');
+    
+    let currentCertIndex = 0;
+    let certArray = [];
+    
+    // Initialize certificate array
+    function initCertificates() {
+        const certCards = document.querySelectorAll('.certificate-card');
+        certArray = Array.from(certCards).map(card => ({
+            img: card.querySelector('.certificate-image').src,
+            title: card.querySelector('.certificate-content h3').textContent,
+            issuer: card.querySelector('.certificate-issuer span').textContent
+        }));
+    }
+    
+    // Open lightbox with certificate
+    function openCertLightbox(index) {
+        currentCertIndex = index;
+        const cert = certArray[index];
+        
+        img.src = cert.img;
+        caption.textContent = cert.title;
+        counter.textContent = `${index + 1} / ${certArray.length}`;
+        
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Close lightbox
+    function closeCertLightbox() {
+        lightbox.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    
+    // Navigation
+    function nextCert() {
+        currentCertIndex = (currentCertIndex + 1) % certArray.length;
+        openCertLightbox(currentCertIndex);
+    }
+    
+    function prevCert() {
+        currentCertIndex = (currentCertIndex - 1 + certArray.length) % certArray.length;
+        openCertLightbox(currentCertIndex);
+    }
+    
+    // Event listeners
+    certificateButtons.forEach((btn, index) => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (certArray.length === 0) initCertificates();
+            openCertLightbox(index);
+        });
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeCertLightbox);
+    if (backdrop) backdrop.addEventListener('click', closeCertLightbox);
+    
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    if (prevBtn) prevBtn.addEventListener('click', prevCert);
+    if (nextBtn) nextBtn.addEventListener('click', nextCert);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeCertLightbox();
+        if (e.key === 'ArrowLeft') prevCert();
+        if (e.key === 'ArrowRight') nextCert();
+    });
+    
+    // Initialize on load
+    if (certificateButtons.length > 0) {
+        initCertificates();
+    }
 })();

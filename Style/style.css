@@ -2,27 +2,33 @@
    CSS Variables & Reset
    =================================== */
 :root {
-    /* Colors */
-    --primary: #ff0000;
-    --primary-dark: #cc0000;
-    --primary-alpha: rgba(255, 0, 0, 0.1);
-    --secondary: #0a0a0a;
-    --accent: #ffffff;
-    --text: #e0e0e0;
-    --text-light: #999999;
-    --bg: #0d0d0d;
-    --bg-card: #141414;
-    --bg-input: #1a1a1a;
+    /* Dev theme (reduced-saturation red) */
+    --primary: #ff3b3b;
+    --primary-dark: #0b6fb3;
+    --primary-alpha: rgba(25, 167, 255, 0.12);
+    --secondary: #070b12;
+    --accent: #eaf7ff;
+    --text: #dbe7f3;
+    --text-light: #8aa0b8;
+    --bg: #050810;
+    --bg-card: #0b1220;
+    --bg-input: #0e172a;
+
     
     /* Effects */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     --shadow-hover: 0 20px 60px rgba(0, 0, 0, 0.7);
-    
+
+    /* Motion */
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
     /* Spacing */
     --section-padding: 100px;
     --container-max-width: 1200px;
 }
+
 
 /* Reset & Base Styles */
 *, *::before, *::after {
@@ -86,7 +92,7 @@ h1, h2, h3 {
 .section-tag {
     display: inline-block;
     padding: 11px 20px;
-    background: rgba(255, 0, 0, 0.15);
+    background: var(--primary-alpha);
     color: var(--primary);
     font-size: 0.875rem;
     font-weight: 600;
@@ -95,6 +101,7 @@ h1, h2, h3 {
     border-radius: 50px;
     margin-bottom: 15px;
 }
+
 
 .section-title {
     font-size: clamp(2rem, 5vw, 3rem);
@@ -135,8 +142,9 @@ h1, h2, h3 {
 .btn-primary {
     background: var(--primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--primary-alpha);
 }
+
 
 .btn-primary:hover {
     background: var(--primary-dark);
@@ -266,10 +274,13 @@ h1, h2, h3 {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('../assets/redbg.jpg') center/cover;
-    opacity: 0.2;
+    /* keep asset, but tone it with mix-blend */
+    background: url('../assets/bluebg.jpg') center/cover;
+    opacity: 0.18;
     pointer-events: none;
+    mix-blend-mode: screen;
 }
+
 
 .hero-content {
     position: relative;
@@ -584,8 +595,9 @@ h1, h2, h3 {
     transition: var(--transition);
     display: flex;
     flex-direction: row; /* Horizontal layout */
-    min-height: 400px;
+    min-height: 320px; /* allow content to grow to prevent overflow glitches */
 }
+
 
 .project-card:hover {
     transform: translateY(-10px);
@@ -593,28 +605,38 @@ h1, h2, h3 {
     box-shadow: var(--shadow-hover);
 }
 
-/* Image side - 50% width */
+/* Image side - 45% width, fixed height */
 .project-image {
     position: relative;
     overflow: hidden;
-    width: 50%;
-    min-height: 400px;
+    width: 45%;
+    flex-shrink: 0;
     background: #0a0a0a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover; /* Crop to fill — no empty space, no size mismatch */
+    object-position: center top;
     transition: var(--transition);
-    padding: 10px;
+    display: block;
+}
+
+.project-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition);
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
+}
+
+.project-card:hover .project-video {
+    transform: scale(1.02);
 }
 
 /* Status badge */
@@ -641,10 +663,11 @@ h1, h2, h3 {
     color: white;
 }
 
-/* Content side - 50% width */
+/* Content side - remaining width, scrollable if content overflows */
 .project-content {
-    width: 50%;
-    padding: 40px;
+    width: 55%;
+    padding: 28px 32px;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -658,7 +681,7 @@ h1, h2, h3 {
 }
 
 .project-header h3 {
-    font-size: 1.8rem;
+    font-size: 1.35rem;
     color: var(--accent);
     line-height: 1.3;
 }
@@ -688,21 +711,21 @@ h1, h2, h3 {
 
 .project-description {
     color: var(--text-light);
-    margin-bottom: 25px;
-    line-height: 1.8;
-    font-size: 1.05rem;
+    margin-bottom: 14px;
+    line-height: 1.65;
+    font-size: 0.92rem;
 }
 
 .project-features {
-    margin-bottom: 30px;
+    margin-bottom: 14px;
 }
 
 .project-features h4 {
     color: var(--accent);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     font-weight: 600;
 }
 
@@ -712,35 +735,36 @@ h1, h2, h3 {
 
 .project-features li {
     color: var(--text-light);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
+    gap: 10px;
+    font-size: 0.88rem;
 }
 
 .project-features li i {
     color: var(--primary);
-    font-size: 0.9rem;
-    width: 16px;
+    font-size: 0.8rem;
+    width: 14px;
+    flex-shrink: 0;
 }
 
 /* Tech tags at bottom */
 .project-tech {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 7px;
     margin-top: auto;
-    padding-top: 20px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-tech span {
-    padding: 8px 16px;
+    padding: 5px 12px;
     background: rgba(255, 0, 0, 0.1);
     color: var(--primary);
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     font-weight: 500;
     border: 1px solid rgba(255, 0, 0, 0.2);
     transition: var(--transition);
@@ -757,7 +781,7 @@ h1, h2, h3 {
 @media (max-width: 968px) {
     .project-card {
         flex-direction: column;
-        min-height: auto;
+        height: auto;
     }
     
     .project-image,
@@ -766,17 +790,16 @@ h1, h2, h3 {
     }
     
     .project-image {
-        min-height: 280px;
-        height: auto;
-        width: 100%;
+        height: 240px;
     }
     
     .project-content {
-        padding: 30px;
+        padding: 24px;
+        overflow-y: visible;
     }
     
     .project-header h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -784,7 +807,7 @@ h1, h2, h3 {
     .project-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        gap: 12px;
     }
     
     .project-links {
@@ -792,15 +815,14 @@ h1, h2, h3 {
     }
     
     .project-header h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
     .project-content {
-        padding: 25px;
+        padding: 20px;
     }
     
     .project-image {
-        min-height: 200px;
         height: 200px;
     }
 }
@@ -1158,6 +1180,16 @@ h1, h2, h3 {
         display: none;
     }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 /* ===================================
    PREMIUM UPGRADES
    =================================== */
@@ -1173,6 +1205,7 @@ h1, h2, h3 {
 
 /* ── Hero upgrades ── */
 .hero::after {
+
     content: '';
     position: absolute;
     inset: 0;
@@ -1187,7 +1220,8 @@ h1, h2, h3 {
 
 /* Glowing name */
 .hero-title {
-    background: linear-gradient(135deg, #ffffff 0%, #ff4444 50%, #ffffff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ff6666 50%, #ffffff 100%);
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1402,6 +1436,12 @@ h1, h2, h3 {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1), border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Safety: ensure projects render even if JS reveal fails */
+.projects .project-card {
+    opacity: 1 !important;
+    transform: none !important;
 }
 
 /* Stagger children */
@@ -1705,10 +1745,217 @@ h1, h2, h3 {
     z-index: 10;
 }
 
+/* ===================================
+   CERTIFICATES SECTION
+   =================================== */
+.certificates {
+    padding: var(--section-padding) 0;
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.02) 0%, transparent 100%);
+    position: relative;
+}
+
+.certificates::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Certificate Card */
+.certificate-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.certificate-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(255, 0, 0, 0.15);
+}
+
+/* Certificate Image Wrapper */
+.certificate-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 125%; /* 4:5 aspect ratio for certificates */
+    overflow: hidden;
+    background: var(--secondary);
+}
+
+.certificate-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.certificate-card:hover .certificate-image {
+    transform: scale(1.05);
+}
+
+/* Certificate Overlay */
+.certificate-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+}
+
+.certificate-card:hover .certificate-overlay {
+    opacity: 1;
+}
+
+/* Certificate View Button */
+.certificate-view-btn {
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.certificate-view-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
+}
+
+/* Certificate Content */
+.certificate-content {
+    padding: 24px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--accent);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.certificate-card:hover .certificate-content h3 {
+    color: var(--primary);
+}
+
+/* Certificate Issuer */
+.certificate-issuer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.certificate-issuer i {
+    color: var(--primary);
+    font-size: 0.85rem;
+}
+
+.certificate-card:hover .certificate-issuer {
+    color: var(--text);
+}
+
+/* Certificate Date */
+.certificate-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+}
+
+.certificate-date i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* Certificate Tags */
+.certificate-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.certificate-tags span {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(255, 0, 0, 0.08);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.certificate-card:hover .certificate-tags span {
+    background: rgba(255, 0, 0, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
 /* ── Mobile ── */
 @media (max-width: 768px) {
     .lightbox-arrow { display: none; }
     .lightbox-close  { top: 16px; right: 16px; }
     #lightbox-img    { max-height: 75vh; border-radius: 8px; }
     .lightbox-caption { font-size: 0.8rem; padding: 0 16px; }
+    
+    .certificates {
+        padding: 80px 0;
+    }
+    
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .certificate-content {
+        padding: 20px 16px;
+    }
 }
