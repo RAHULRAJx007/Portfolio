@@ -1,827 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rahul Raj - Java Full Stack Developer Portfolio. B.E Computer Science Student specializing in Spring Boot and React.">
-    <meta name="keywords" content="Rahul Raj, Full Stack Developer, Java, Spring Boot, React, Kerala">
-    <meta name="author" content="Rahul Raj">
-    <meta name="theme-color" content="#ff0000">
-    
-    <!-- Preconnect to external resources -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    
-    <!-- Fonts - optimized loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="Style/style.css">
-    
-    <title>Rahul Raj | Java Full Stack Developer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rahul Raj — Java Full Stack Developer. B.E Computer Science, Spring Boot & React specialist. Building production-ready apps.">
+  <meta name="keywords" content="Rahul Raj, Full Stack Developer, Java, Spring Boot, React, Kerala">
+  <meta name="author" content="Rahul Raj">
+  <meta name="theme-color" content="#ff2442">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Rahul Raj | Java Full Stack Developer">
+  <meta property="og:description" content="Building robust full-stack applications with Spring Boot & React.">
+  <meta property="og:type" content="website">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Fonts: Syne + JetBrains Mono + Outfit -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="Style/style.css">
+
+  <title>Rahul Raj | Java Full Stack Developer</title>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="#home" class="nav-logo" aria-label="Rahul Raj - Home">
-                <img src="assets/nametag3.png" alt="Rahul Raj Logo" width="150" height="50">
-            </a>
-            <ul class="nav-menu" id="nav-menu" role="menubar">
-                <li role="none"><a href="#home" class="nav-link" role="menuitem">Home</a></li>
-                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
-                <li role="none"><a href="#services" class="nav-link" role="menuitem">Skills</a></li>
-                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
-                <li role="none"><a href="#resume" class="nav-link" role="menuitem">Resume</a></li>
-                <li role="none"><a href="#certificates" class="nav-link" role="menuitem">Certificates</a></li>
-                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <p class="hero-greeting">Hello, I'm</p>
-            <h1 class="hero-title">Rahul Raj . R</h1>
-            <h2 class="hero-subtitle">Java Full Stack Developer</h2>
-            <p class="hero-description">A passionate Java Full Stack Developer who bridges complex backend logic with seamless user experiences. Ready to build, ship, and scale.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Let's Talk</a>
-                <a href="#resume" class="btn btn-secondary">View Resume</a>
-            </div>
-            <div class="hero-socials">
-                <a href="https://github.com/RAHULRAJx007" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/rahul122003" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.instagram.com/riru.x21/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram Profile">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <a href="#about" class="scroll-indicator" aria-label="Scroll to About section">
-                <span>Scroll Down</span>
-                <i class="fas fa-chevron-down"></i>
-            </a>
-        </div>
-    </section>
+  <!-- ═══ Navigation ═══ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Rahul Raj — Home">
+        <img src="assets/nametag3.png" alt="Rahul Raj" width="150" height="50">
+      </a>
+      <ul class="nav-menu" id="nav-menu" role="menubar">
+        <li><a href="#home"         class="nav-link" role="menuitem">Home</a></li>
+        <li><a href="#about"        class="nav-link" role="menuitem">About</a></li>
+        <li><a href="#services"     class="nav-link" role="menuitem">Skills</a></li>
+        <li><a href="#projects"     class="nav-link" role="menuitem">Projects</a></li>
+        <li><a href="#resume"       class="nav-link" role="menuitem">Resume</a></li>
+        <li><a href="#certificates" class="nav-link" role="menuitem">Certs</a></li>
+        <li><a href="#contact"      class="nav-link" role="menuitem">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-tag">About Me</span>
-                <br>
-                <h2 class="section-title">Behind the Code</h2>
-            </header>
-            <div class="about-grid">
-                <div class="about-image-wrapper">
-                    <div class="about-image">
-                        <img src="assets/2023post.jpg" alt="Rahul Raj - Professional photo" loading="lazy" width="400" height="500">
-                    </div>
-                    <div class="about-experience">
-                        <span class="exp-number">8.1</span>
-                        <span class="exp-text">CGPA<br>Score</span>
-                    </div>
-                </div>
-                <div class="about-content">
-                    <h3>Java Full Stack Developer</h3>
-                    <p>I hold a <strong>B.E. in Computer Science</strong> from Arunachala Hi-Tech Engineering College, graduating with a <strong>CGPA of 8.1</strong>. My journey is driven by a passion for solving real-world problems through clean code and efficient architecture.</p>
-                    <p>With hands-on experience in <strong>Front-End Development</strong> and intensive training in <strong>Java Full Stack</strong>, I build robust applications using Spring Boot and React — and I've already delivered freelance projects for real clients.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">B.E.</span>
-                            <span class="stat-label">CS Graduate</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">Java</span>
-                            <span class="stat-label">Core Expertise</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Projects Shipped</span>
-                        </div>
-                    </div>
-                    <a href="#contact" class="btn btn-primary">Work With Me</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ═══ Hero ═══ -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-title">Rahul Raj<span class="t-red">.</span>R</h1>
+      <h2 class="hero-subtitle">Java Full Stack Developer</h2>
+      <p class="hero-description">
+        A passionate Java Full Stack Developer who bridges complex backend logic with seamless user experiences.
+        Ready to build, ship, and scale production-grade applications.
+      </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-terminal"></i> Let's Talk</a>
+        <a href="#resume"  class="btn btn-secondary"><i class="fas fa-file-code"></i> View Resume</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/RAHULRAJx007" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/rahul122003" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/riru.x21/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#about" class="scroll-indicator" aria-label="Scroll to About">
+        <span>scroll</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-tag">Expertise</span>
-                <br>
-                <h2 class="section-title">Skills & Specializations</h2>
-            </header>
-            <div class="services-grid">
-                <article class="service-card">
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Backend Development</h3>
-                    <p>Expertise in building scalable server-side logic and RESTful APIs using modern Java frameworks.</p>
-                    <div class="service-tags">
-                        <span>Java</span> 
-                        <span>Spring Boot</span> 
-                        <span>SQL</span> 
-                        <span>Git</span>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Frontend Development</h3>
-                    <p>Crafting responsive and interactive user interfaces with a focus on performance and modern design.</p>
-                    <div class="service-tags">
-                        <span>React</span> 
-                        <span>JavaScript</span> 
-                        <span>HTML5/CSS3</span> 
-                        <span>Bootstrap</span>
-                    </div>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Digital Solutions</h3>
-                    <p>Beyond coding, I handle digital presence, SEO, and CMS-based rapid web development.</p>
-                    <div class="service-tags">
-                        <span>Shopify</span> 
-                        <span>Wix</span> 
-                        <span>SEO</span> 
-                        <span>Digital Marketing</span>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-            <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-tag">My Work</span>
-                <br>
-                <h2 class="section-title">Featured Projects</h2>
-            </header>
-            
-            <div class="projects-grid">
-                <!-- Project 1: SliceHub -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="assets/SliceHub.png" alt="SliceHub Pizza Ordering System" loading="lazy" class="lightbox-trigger" data-caption="SliceHub — Full-Stack Pizza Ordering Platform">
-                        <div class="project-status status-completed">Completed</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>SliceHub</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007/Slicehub-Food-Ordering-System" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View SliceHub on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link" aria-label="Live Demo">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">Full-stack online pizza ordering platform with Spring Boot, featuring secure authentication, email verification, role-based access, and persistent shopping cart.</p>
-                        
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Email verification with Mailtrap</li>
-                                <li><i class="fas fa-check"></i> Admin pizza management with image upload</li>
-                                <li><i class="fas fa-check"></i> Real-time cart calculations (tax, delivery)</li>
-                                <li><i class="fas fa-check"></i> BCrypt security & role-based access</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>Spring Boot</span>
-                            <span>Thymeleaf</span>
-                            <span>MySQL</span>
-                            <span>Spring Security</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2: Scope India Website -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="assets/Scopeindia.png" alt="Scope India Website Replication" loading="lazy" class="lightbox-trigger" data-caption="Scope India — Website Replication">
-                        <div class="project-status status-completed">Completed</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Scope India Replication</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Code on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">Professional website replication built as part of Java Full Stack training at Scope India. Fully responsive frontend with modern design patterns and clean component structure.</p>
-                        
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Pixel-perfect responsive layout</li>
-                                <li><i class="fas fa-check"></i> Modern frontend architecture</li>
-                                <li><i class="fas fa-check"></i> Cross-browser compatibility</li>
-                                <li><i class="fas fa-check"></i> Clean, maintainable codebase</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>React</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3: Facial Recognition Attendance -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="assets/facerec.png" alt="Facial Recognition Attendance System" loading="lazy" class="lightbox-trigger" data-caption="Real-Time Facial Recognition Attendance System — Final Year Project">
-                        <div class="project-status status-completed">Final Year Project</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Real-Time Facial Recognition Attendance System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007/Real-Time-Facial-Recognition-Attendance-System" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">Real-time facial recognition system for automated attendance management using Python, OpenCV, and DeepFace. Eliminates proxy attendance with AI-powered verification.</p>
-                        
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Real-time face detection & recognition</li>
-                                <li><i class="fas fa-check"></i> DeepFace embedding generation</li>
-                                <li><i class="fas fa-check"></i> SQLite database with CSV export</li>
-                                <li><i class="fas fa-check"></i> Contactless, fraud-proof attendance</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>OpenCV</span>
-                            <span>DeepFace</span>
-                            <span>TensorFlow</span>
-                        </div>
-                    </div>
-                </article>
-                <!-- Project 4: Project Tracker (Velozity Assessment) -->
-                <article class="project-card">
-                    <div class="project-image">
-
-                            <img src="assets/job1.png" alt="Project Tracker Dashboard" loading="lazy" class="lightbox-trigger" data-caption="Project Tracker UI — Velozity Global Solutions Assessment">
-                            <div class="project-status status-completed">Completed</div>
-                            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                        </div>
-
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3>Project Tracker UI (Velozity Assessment)</h3>
-                                <div class="project-links">
-                                    <a href="https://github.com/RAHULRAJx007/VELOZITY-GLOBAL-SOLUTIONS-Assessment" target="_blank" class="project-link">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="https://velozity-global-solutions-assessmen.vercel.app" target="_blank" class="project-link">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <p class="project-description">
-                                Advanced frontend project built as part of Velozity Global Solutions hiring assessment. Features multi-view task management system with custom drag-and-drop, virtual scrolling, and real-time UI updates.
-                            </p>
-
-                            <div class="project-features">
-                                <h4>Key Features:</h4>
-                                <ul>
-                                    <li><i class="fas fa-check"></i> Custom drag & drop (no libraries)</li>
-                                    <li><i class="fas fa-check"></i> Virtual scrolling (500+ tasks)</li>
-                                    <li><i class="fas fa-check"></i> Multi-view (Kanban, List, Timeline)</li>
-                                    <li><i class="fas fa-check"></i> Real-time state updates with Zustand</li>
-                                </ul>
-                            </div>
-
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>TypeScript</span>
-                                <span>Tailwind CSS</span>
-                                <span>Zustand</span>
-                            </div>
-                        </div>
-                    </article>
-
-                <!-- Project 5: Nishanth Kasani Portfolio -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="assets/portfolio_project_1.png" alt="Nishanth Kasani Engineering Portfolio" loading="lazy" class="lightbox-trigger" data-caption="Engineering Portfolio — Nishanth Kasani · Freelance Project">
-                        <div class="project-status status-completed">Freelance — Completed</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Engineering Portfolio — Nishanth Kasani</h3>
-                            <div class="project-links">
-                                <a href="https://www.linkedin.com/in/nishanth-kasani" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Client LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            Custom animated portfolio website built for a Mechanical Product Engineer with 3+ years of industry experience. Fully hand-coded from a CV — no templates used. Features project case studies with embedded videos, image galleries, and structured engineering documentation sections.
-                        </p>
-
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Scroll-triggered animations & skill bars</li>
-                                <li><i class="fas fa-check"></i> Autoplay muted video showcases per project</li>
-                                <li><i class="fas fa-check"></i> Case study sections: Objective · Methodology · Results · Improvements</li>
-                                <li><i class="fas fa-check"></i> Lightbox image gallery & fully responsive design</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>Vanilla JS</span>
-                            <span>Freelance</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 6: Devika Portfolio - Mechanical Design Engineer -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="assets/portfolio_project_2.jpg" alt="Devika E S - Mechanical Design Engineer Portfolio" loading="lazy" class="lightbox-trigger" data-caption="Mechanical Design Portfolio — Devika E S · Freelance Project">
-                        <div class="project-status status-completed">Freelance — Completed</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Mechanical Design Engineer Portfolio — Devika E S</h3>
-                            <div class="project-links">
-                                <a href="https://devika-cad.github.io/Devika_Portfolio/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Portfolio">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            Professional portfolio for a Mechanical Design Engineer showcasing expertise in CAD design, structural analysis, and manufacturing solutions. Features project galleries, technical documentation, and 3D model showcase with modern animations and responsive design.
-                        </p>
-
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> CAD design portfolio showcase</li>
-                                <li><i class="fas fa-check"></i> 3D model visualization</li>
-                                <li><i class="fas fa-check"></i> Structural analysis documentation</li>
-                                <li><i class="fas fa-check"></i> Responsive design for all devices</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>Responsive Design</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 7: Sona Designing - Billing System -->
-                <article class="project-card">
-                    <div class="project-image" aria-label="Sona Designing project gallery">
-                        <img src="assets/sonadesigning_1.jpg" alt="Sona Designing - Full-Stack Billing System (Dashboard)" loading="lazy" class="lightbox-trigger" data-caption="Billing System UI — Sona Designing · Dashboard">
-                        <img src="assets/sonadesigning_2.jpg" alt="Sona Designing - Full-Stack Billing System (Bill Create)" loading="lazy" class="lightbox-trigger" data-caption="Billing System UI — Sona Designing · Create Bill">
-                        <img src="assets/sonadesigning_3.jpg" alt="Sona Designing - Full-Stack Billing System (Invoice)" loading="lazy" class="lightbox-trigger" data-caption="Billing System UI — Sona Designing · Invoice Preview">
-                        <img src="assets/sonadesigning_4.jpg" alt="Sona Designing - Full-Stack Billing System (Analytics)" loading="lazy" class="lightbox-trigger" data-caption="Billing System UI — Sona Designing · Analytics">
-
-                        <div class="project-status status-completed">Personal Project — Deployed</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
-                    </div>
-                    <div class="project-content">
-
-                        <div class="project-header">
-                            <h3>Sona Designing - Full-Stack Billing System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007/Sona-Designing-Billing" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View GitHub Repository">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            Full-stack billing system built to replace manual billing for my mom's boutique. Solves real-world business problems by digitizing order tracking, payment management, and invoice generation. Deployed with Docker and cloud infrastructure for production use.
-                        </p>
-
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Easy bill creation for non-technical users</li>
-                                <li><i class="fas fa-check"></i> WhatsApp bill sharing integration</li>
-                                <li><i class="fas fa-check"></i> Automatic PDF invoice generation</li>
-                                <li><i class="fas fa-check"></i> Daily/Monthly/Yearly analytics dashboard</li>
-                                <li><i class="fas fa-check"></i> Real-time order tracking & stitch management</li>
-                                <li><i class="fas fa-check"></i> Mobile-friendly responsive UI</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>Spring Boot</span>
-                            <span>PostgreSQL</span>
-                            <span>Docker</span>
-                            <span>Render</span>
-                            <span>HTML/CSS/JS</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 8: Zulu Boutique - Admin Panel -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <video src="assets/AdminPanel.mp4" alt="Zulu Boutique - Admin Panel" loading="lazy" class="project-video" muted autoplay loop></video>
-                        <div class="project-status status-completed">Professional Project — Live</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-play-circle"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Admin Panel — Zulu Boutique Billing System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007/Zulu-Boutique" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View GitHub Repository">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            Comprehensive admin dashboard for a real-world boutique billing system. Empowers business owners with complete control over products, pricing, inventory, and customer billing workflows. Built with Spring Boot backend and secure authentication mechanisms.
-                        </p>
-
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Product management (Add, Update, Delete)</li>
-                                <li><i class="fas fa-check"></i> Secure admin authentication with JWT</li>
-                                <li><i class="fas fa-check"></i> Real-time stock tracking & updates</li>
-                                <li><i class="fas fa-check"></i> Dynamic pricing & discount handling</li>
-                                <li><i class="fas fa-check"></i> Role-based access control</li>
-                                <li><i class="fas fa-check"></i> Structured invoice management</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>Spring Boot</span>
-                            <span>Java</span>
-                            <span>PostgreSQL</span>
-                            <span>JWT</span>
-                            <span>REST API</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 9: Zulu Boutique - Staff Panel -->
-                <article class="project-card">
-                    <div class="project-image">
-                        <video src="assets/StaffPanel.mp4" alt="Zulu Boutique - Staff Panel" loading="lazy" class="project-video" muted autoplay loop></video>
-                        <div class="project-status status-completed">Professional Project — Live</div>
-                        <div class="lightbox-zoom-hint"><i class="fas fa-play-circle"></i></div>
-                    </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Staff Panel — Zulu Boutique Billing System</h3>
-                            <div class="project-links">
-                                <a href="https://github.com/RAHULRAJx007/Zulu-Boutique" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View GitHub Repository">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <p class="project-description">
-                            Intuitive staff-facing interface for fast, seamless billing operations. Optimized for speed and simplicity, enabling shop staff to handle customer transactions smoothly without technical knowledge. Features instant PDF invoicing and WhatsApp integration for bill sharing.
-                        </p>
-
-                        <div class="project-features">
-                            <h4>Key Features:</h4>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Fast & seamless billing workflow</li>
-                                <li><i class="fas fa-check"></i> Easy product search & selection</li>
-                                <li><i class="fas fa-check"></i> Instant discount application</li>
-                                <li><i class="fas fa-check"></i> Automatic PDF invoice generation</li>
-                                <li><i class="fas fa-check"></i> WhatsApp bill sharing for customers</li>
-                                <li><i class="fas fa-check"></i> Real-time updates with minimal input</li>
-                            </ul>
-                        </div>
-
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>JavaScript</span>
-                            <span>Responsive Design</span>
-                            <span>UX-Optimized</span>
-                            <span>POS System</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section class="resume" id="resume">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-tag">My Journey</span>
-                <br>
-                <h2 class="section-title">Resume</h2>
-            </header>
-            <div class="resume-container">
-                <div class="resume-preview">
-                    <img src="assets/RahulAtscv.jpg" alt="Rahul Raj Resume Preview" class="resume-image" loading="lazy" width="900" height="1200">
-                    <div class="resume-overlay">
-                        <a href="assets/RahulAtscv.jpg" download="Rahul_Raj_Resume.jpg" class="btn btn-primary btn-large">
-                            <i class="fas fa-download"></i> Download CV
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section class="certificates" id="certificates">
-        <div class="container">
-            <header class="section-header">
-                <span class="section-tag">Achievements</span>
-                <br>
-                <h2 class="section-title">Professional Certifications</h2>
-            </header>
-            <div class="certificates-grid">
-                <!-- SCOPE India Certificate - FIRST -->
-                <article class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <img src="assets/RahulScopeIndia.jpeg" alt="SCOPE India Software Programming Certificate" class="certificate-image" loading="lazy">
-                        <div class="certificate-overlay">
-                            <button class="certificate-view-btn" aria-label="View SCOPE India Certificate">
-                                <i class="fas fa-expand"></i> View Certificate
-                            </button>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Intensive Internship in Software Programming</h3>
-                        <p class="certificate-issuer">
-                            <i class="fas fa-building"></i> 
-                            <span>SCOPE India & Suffix E Solutions</span>
-                        </p>
-                        <p class="certificate-date">
-                            <i class="fas fa-calendar"></i> 
-                            <span>Sep 2025 - Feb 2026</span>
-                        </p>
-                        <div class="certificate-tags">
-                            <span>Java</span>
-                            <span>React</span>
-                            <span>Full Stack</span>
-                            <span>A+ Grade</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Cloud Services Certificate -->
-                <article class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <img src="assets/NM_Certificate_Cloud.jpg" alt="Cloud Services Management Certificate" class="certificate-image" loading="lazy">
-                        <div class="certificate-overlay">
-                            <button class="certificate-view-btn" aria-label="View Cloud Services Certificate">
-                                <i class="fas fa-expand"></i> View Certificate
-                            </button>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Cloud Services Management</h3>
-                        <p class="certificate-issuer">
-                            <i class="fas fa-building"></i> 
-                            <span>Tamil Nadu Skill Development Corporation</span>
-                        </p>
-                        <p class="certificate-date">
-                            <i class="fas fa-calendar"></i> 
-                            <span>Issued: July 27, 2025</span>
-                        </p>
-                        <div class="certificate-tags">
-                            <span>Oracle</span>
-                            <span>Cloud Computing</span>
-                            <span>Naan Mudhalvan</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Game Development Certificate -->
-                <article class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <img src="assets/NM_Certificate_GameDev.jpg" alt="Game Development Certificate" class="certificate-image" loading="lazy">
-                        <div class="certificate-overlay">
-                            <button class="certificate-view-btn" aria-label="View Game Development Certificate">
-                                <i class="fas fa-expand"></i> View Certificate
-                            </button>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Game Development</h3>
-                        <p class="certificate-issuer">
-                            <i class="fas fa-building"></i> 
-                            <span>Tamil Nadu Skill Development Corporation</span>
-                        </p>
-                        <p class="certificate-date">
-                            <i class="fas fa-calendar"></i> 
-                            <span>Issued: November 4, 2025</span>
-                        </p>
-                        <div class="certificate-tags">
-                            <span>InGage</span>
-                            <span>Game Dev</span>
-                            <span>Naan Mudhalvan</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Skillbuild Certificate -->
-                <article class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <img src="assets/NM_Certificate_SkillBuild.jpg" alt="Naalayathiran IBM Skillbuild Certificate" class="certificate-image" loading="lazy">
-                        <div class="certificate-overlay">
-                            <button class="certificate-view-btn" aria-label="View Skillbuild Certificate">
-                                <i class="fas fa-expand"></i> View Certificate
-                            </button>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Naalayathiran - IBM Skillsbuild</h3>
-                        <p class="certificate-issuer">
-                            <i class="fas fa-building"></i> 
-                            <span>Tamil Nadu Skill Development Corporation</span>
-                        </p>
-                        <p class="certificate-date">
-                            <i class="fas fa-calendar"></i> 
-                            <span>Issued: October 2, 2025</span>
-                        </p>
-                        <div class="certificate-tags">
-                            <span>IBM</span>
-                            <span>Skillsbuild</span>
-                            <span>Enterprise Skills</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- XR Certificate -->
-                <article class="certificate-card">
-                    <div class="certificate-image-wrapper">
-                        <img src="assets/NM_Certificate_XR.jpg" alt="Industrial Metaverse XR Certificate" class="certificate-image" loading="lazy">
-                        <div class="certificate-overlay">
-                            <button class="certificate-view-btn" aria-label="View XR Certificate">
-                                <i class="fas fa-expand"></i> View Certificate
-                            </button>
-                        </div>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Industrial Metaverse using XR</h3>
-                        <p class="certificate-issuer">
-                            <i class="fas fa-building"></i> 
-                            <span>Tamil Nadu Skill Development Corporation</span>
-                        </p>
-                        <p class="certificate-date">
-                            <i class="fas fa-calendar"></i> 
-                            <span>Issued: May 23, 2025</span>
-                        </p>
-                        <div class="certificate-tags">
-                            <span>Mixed Reality</span>
-                            <span>InGage</span>
-                            <span>Emerging Tech</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-<section class="contact" id="contact">
+  <!-- ═══ About ═══ -->
+  <section class="about" id="about">
     <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Get In Touch</span>
-            <br>
-            <h2 class="section-title">Let's Work Together</h2>
+      <header class="section-header">
+        <span class="section-tag">About Me</span><br>
+        <h2 class="section-title">Behind the <span class="red">Code</span></h2>
+      </header>
+      <div class="about-grid">
+
+        <!-- Image Column -->
+        <div class="about-image-wrapper">
+          <div class="about-image">
+            <!-- 400×500 portrait image -->
+            <img src="assets/2023post.jpg" alt="Rahul Raj — Professional photo" loading="lazy" width="400" height="500">
+          </div>
+          <div class="about-experience">
+            <span class="exp-number">8.1</span>
+            <span class="exp-text">CGPA<br>Score</span>
+          </div>
         </div>
-        <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text"><span>Email</span><p>rahulx122003@gmail.com</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
-                        <div class="contact-text"><span>Phone</span><p>+91 70340 06336</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text"><span>Location</span><p>Amaravilla, Thiruvananthapuram</p></div>
-                    </div>
-                </div>
+
+        <!-- Text Column -->
+        <div class="about-content">
+          <h3>Java Full Stack Developer</h3>
+          <p>I hold a <strong>B.E. in Computer Science</strong> from Arunachala Hi-Tech Engineering College, graduating with a <strong>CGPA of 8.1</strong>. My journey is driven by a passion for solving real-world problems through clean code and efficient architecture.</p>
+          <p>With hands-on experience in <strong>Front-End Development</strong> and intensive training in <strong>Java Full Stack</strong>, I build robust applications using Spring Boot and React — and I've already delivered freelance projects for real clients.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">B.E.</span>
+              <span class="stat-label">CS Graduate</span>
             </div>
-
-            <div class="contact-form-wrapper">
-                <div class="cv-details">
-                    <h3 class="cv-title">About this Portfolio</h3>
-                    <p class="cv-subtitle">B.E Computer Science student focused on building production-ready full-stack apps.</p>
-
-                    <div class="cv-list">
-                        <div class="cv-row"><span class="cv-k">Tech Stack</span><span class="cv-v">Java • Spring Boot • React • SQL</span></div>
-                        <div class="cv-row"><span class="cv-k">Focus</span><span class="cv-v">Clean architecture, secure auth, responsive UI</span></div>
-                        <div class="cv-row"><span class="cv-k">Highlights</span><span class="cv-v">Projects deployed + real client work</span></div>
-                        <div class="cv-row"><span class="cv-k">Resume</span><span class="cv-v"><a href="assets/RahulAtscv.jpg" download="Rahul_Raj_Resume.jpg" class="cv-download">Download CV</a></span></div>
-                    </div>
-
-                    <div class="cv-actions">
-                        <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
-                        <a href="#resume" class="btn btn-secondary"><i class="fas fa-file-download"></i> Resume</a>
-                    </div>
-                </div>
+            <div class="stat">
+              <span class="stat-number">Java</span>
+              <span class="stat-label">Core Expertise</span>
             </div>
-
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Projects Shipped</span>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary"><i class="fas fa-handshake"></i> Work With Me</a>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-    <style>
-        /* portfolio-inline styles for the contact (kept minimal to avoid breaking existing CSS) */
-        .cv-details { padding: 6px 2px; }
-        .cv-title { color: var(--accent); margin-bottom: 12px; font-size: 1.35rem; }
-        .cv-subtitle { color: var(--text-light); margin-bottom: 18px; }
-        .cv-list { display: grid; gap: 10px; margin-bottom: 18px; }
-        .cv-row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); }
-        .cv-k { color: var(--text-light); font-weight: 600; white-space: nowrap; }
-        .cv-v { color: white; text-align: right; }
-        .cv-download { color: var(--primary); text-decoration: none; }
-        .cv-download:hover { text-decoration: underline; }
-        .cv-actions { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    </style>
+  <!-- ═══ Skills ═══ -->
+  <section class="services" id="services">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">Expertise</span><br>
+        <h2 class="section-title">Skills &amp; <span class="blue">Specializations</span></h2>
+      </header>
+      <div class="services-grid">
 
-    <!-- Footer -->
-    <footer class="footer">
+        <article class="service-card">
+          <div class="service-icon"><i class="fas fa-server"></i></div>
+          <h3>Backend Development</h3>
+          <p>Scalable server-side logic and RESTful APIs using modern Java frameworks with production-ready architecture.</p>
+          <div class="service-tags">
+            <span>Java</span>
+            <span>Spring Boot</span>
+            <span>SQL</span>
+            <span>Git</span>
+          </div>
+        </article>
 
-        <div class="container">
-            <p>&copy; <span id="year"></span> Rahul Raj . R | All rights reserved.</p>
-        </div>
-    </footer>
+        <article class="service-card">
+          <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Frontend Development</h3>
+          <p>Responsive, interactive user interfaces with a focus on performance, modern design, and seamless UX.</p>
+          <div class="service-tags">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>HTML5/CSS3</span>
+            <span>Bootstrap</span>
+          </div>
+        </article>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+        <article class="service-card">
+          <div class="service-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Digital Solutions</h3>
+          <p>Beyond code — digital presence, SEO strategy, and CMS-based rapid web development for real businesses.</p>
+          <div class="service-tags">
+            <span>Shopify</span>
+            <span>Wix</span>
+            <span>SEO</span>
+            <span>Digital Marketing</span>
+          </div>
+        </article>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
-        <div class="lightbox-container">
-            <button class="lightbox-close" id="lightbox-close" aria-label="Close image viewer">
-                <i class="fas fa-times"></i>
-            </button>
-            <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous image">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next image">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-            <div class="lightbox-img-wrap">
-                <img src="" alt="" id="lightbox-img" />
-                <div class="lightbox-loader" id="lightbox-loader">
-                    <i class="fas fa-spinner fa-spin"></i>
-                </div>
-            </div>
-            <div class="lightbox-caption" id="lightbox-caption"></div>
-            <div class="lightbox-counter" id="lightbox-counter"></div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+  <!-- ═══ Projects ═══ -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">My Work</span><br>
+        <h2 class="section-title">Featured <span class="red">Projects</span></h2>
+      </header>
+
+      <div class="projects-grid">
+
+        <!-- 1 · SliceHub — IMAGE (wide, landscape) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/SliceHub.png" alt="SliceHub Pizza Ordering System" loading="lazy"
+                 class="lightbox-trigger" data-caption="SliceHub — Full-Stack Pizza Ordering Platform">
+            <div class="project-status status-completed">Completed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>SliceHub</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/Slicehub-Food-Ordering-System" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="project-link" aria-label="Live Demo">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Full-stack online pizza ordering platform with Spring Boot — secure auth, email verification, role-based access, and persistent cart.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Email verification with Mailtrap</li>
+                <li><i class="fas fa-check"></i> Admin pizza management &amp; image upload</li>
+                <li><i class="fas fa-check"></i> Real-time cart (tax + delivery)</li>
+                <li><i class="fas fa-check"></i> BCrypt security &amp; RBAC</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Spring Boot</span><span>Thymeleaf</span><span>MySQL</span><span>Spring Security</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 · Scope India — IMAGE (portrait/tall) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/Scopeindia.png" alt="Scope India Website Replication" loading="lazy"
+                 class="lightbox-trigger" data-caption="Scope India — Website Replication">
+            <div class="project-status status-completed">Completed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Scope India Replication</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Professional website replication built as part of Java Full Stack training at Scope India. Pixel-perfect, responsive frontend with modern design patterns.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Pixel-perfect responsive layout</li>
+                <li><i class="fas fa-check"></i> Modern frontend architecture</li>
+                <li><i class="fas fa-check"></i> Cross-browser compatibility</li>
+                <li><i class="fas fa-check"></i> Clean, maintainable codebase</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 · Facial Recognition — IMAGE (wide) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/facerec.png" alt="Facial Recognition Attendance System" loading="lazy"
+                 class="lightbox-trigger" data-caption="Real-Time Facial Recognition — Final Year Project">
+            <div class="project-status status-completed">Final Year Project</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Real-Time Facial Recognition Attendance</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/Real-Time-Facial-Recognition-Attendance-System" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Real-time face recognition for automated attendance using Python, OpenCV &amp; DeepFace. Eliminates proxy attendance with AI-powered verification.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Real-time face detection &amp; recognition</li>
+                <li><i class="fas fa-check"></i> DeepFace embedding generation</li>
+                <li><i class="fas fa-check"></i> SQLite DB with CSV export</li>
+                <li><i class="fas fa-check"></i> Contactless &amp; fraud-proof</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Python</span><span>OpenCV</span><span>DeepFace</span><span>TensorFlow</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 · Project Tracker UI — IMAGE (dashboard/wide) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/job1.png" alt="Project Tracker Dashboard" loading="lazy"
+                 class="lightbox-trigger" data-caption="Project Tracker UI — Velozity Global Solutions Assessment">
+            <div class="project-status status-completed">Completed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Project Tracker UI — Velozity Assessment</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/VELOZITY-GLOBAL-SOLUTIONS-Assessment" target="_blank" class="project-link"><i class="fab fa-github"></i></a>
+                <a href="https://velozity-global-solutions-assessmen.vercel.app" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+              </div>
+            </div>
+            <p class="project-description">Advanced frontend built for a hiring assessment. Multi-view task management with custom drag-and-drop, virtual scrolling, and real-time state updates.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Custom drag &amp; drop (no libraries)</li>
+                <li><i class="fas fa-check"></i> Virtual scrolling (500+ tasks)</li>
+                <li><i class="fas fa-check"></i> Kanban / List / Timeline views</li>
+                <li><i class="fas fa-check"></i> Real-time state with Zustand</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Zustand</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5 · Nishanth Portfolio — IMAGE (portrait) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/portfolio_project_1.png" alt="Nishanth Kasani Engineering Portfolio" loading="lazy"
+                 class="lightbox-trigger" data-caption="Engineering Portfolio — Nishanth Kasani · Freelance">
+            <div class="project-status status-completed">Freelance — Completed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Engineering Portfolio — Nishanth Kasani</h3>
+              <div class="project-links">
+                <a href="https://www.linkedin.com/in/nishanth-kasani" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="LinkedIn">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Custom animated portfolio for a Mechanical Product Engineer with 3+ years of experience. Fully hand-coded from a CV — no templates. Features video showcases, case studies, and image galleries.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Scroll-triggered animations &amp; skill bars</li>
+                <li><i class="fas fa-check"></i> Autoplay muted video showcases</li>
+                <li><i class="fas fa-check"></i> Case study: Objective · Methods · Results</li>
+                <li><i class="fas fa-check"></i> Lightbox gallery &amp; responsive design</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span><span>Freelance</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6 · Devika Portfolio — IMAGE (landscape) -->
+        <article class="project-card">
+          <div class="project-image">
+            <img src="assets/portfolio_project_2.jpg" alt="Devika E S — Mechanical Design Engineer Portfolio" loading="lazy"
+                 class="lightbox-trigger" data-caption="Mechanical Design Portfolio — Devika E S · Freelance">
+            <div class="project-status status-completed">Freelance — Completed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-expand-alt"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Mechanical Design Portfolio — Devika E S</h3>
+              <div class="project-links">
+                <a href="https://devika-cad.github.io/Devika_Portfolio/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live Portfolio">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Professional portfolio for a Mechanical Design Engineer showcasing CAD, structural analysis, and manufacturing solutions with modern animations and responsive design.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> CAD design portfolio showcase</li>
+                <li><i class="fas fa-check"></i> 3D model visualization</li>
+                <li><i class="fas fa-check"></i> Structural analysis documentation</li>
+                <li><i class="fas fa-check"></i> Fully responsive design</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7 · Sona Designing — MULTIPLE IMAGES (gallery) -->
+        <article class="project-card">
+          <div class="project-image" aria-label="Sona Designing project gallery">
+            <!-- Primary visible image -->
+            <img src="assets/sonadesigning_1.jpg" alt="Sona Designing — Dashboard" loading="lazy"
+                 class="lightbox-trigger" data-caption="Billing System — Sona Designing · Dashboard">
+            <!-- Additional lightbox-accessible images (hidden in card, shown in lightbox) -->
+            <img src="assets/sonadesigning_2.jpg" alt="Sona Designing — Create Bill" loading="lazy"
+                 class="lightbox-trigger" data-caption="Billing System — Sona Designing · Create Bill" style="display:none">
+            <img src="assets/sonadesigning_3.jpg" alt="Sona Designing — Invoice" loading="lazy"
+                 class="lightbox-trigger" data-caption="Billing System — Sona Designing · Invoice Preview" style="display:none">
+            <img src="assets/sonadesigning_4.jpg" alt="Sona Designing — Analytics" loading="lazy"
+                 class="lightbox-trigger" data-caption="Billing System — Sona Designing · Analytics" style="display:none">
+            <div class="project-status status-completed">Deployed</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-images"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Sona Designing — Billing System</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/Sona-Designing-Billing" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Full-stack billing system built to replace manual billing for my mom's boutique. Digitizes order tracking, payment management &amp; invoice generation. Deployed with Docker on cloud infrastructure.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Easy bill creation for non-technical users</li>
+                <li><i class="fas fa-check"></i> WhatsApp bill sharing integration</li>
+                <li><i class="fas fa-check"></i> Automatic PDF invoice generation</li>
+                <li><i class="fas fa-check"></i> Daily / Monthly / Yearly analytics</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Spring Boot</span><span>PostgreSQL</span><span>Docker</span><span>Render</span><span>HTML/CSS/JS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8 · Zulu Admin — VIDEO -->
+        <article class="project-card">
+          <div class="project-image">
+            <video src="assets/AdminPanel.mp4" class="project-video" muted autoplay loop playsinline></video>
+            <div class="project-status status-completed">Professional — Live</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-play-circle"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Admin Panel — Zulu Boutique</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/Zulu-Boutique" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Comprehensive admin dashboard for a real-world boutique billing system. Full product, pricing, inventory, and billing control with Spring Boot backend and secure JWT auth.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Product management (Add / Update / Delete)</li>
+                <li><i class="fas fa-check"></i> Secure JWT authentication</li>
+                <li><i class="fas fa-check"></i> Real-time stock tracking</li>
+                <li><i class="fas fa-check"></i> Role-based access control</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Spring Boot</span><span>Java</span><span>PostgreSQL</span><span>JWT</span><span>REST API</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9 · Zulu Staff — VIDEO -->
+        <article class="project-card">
+          <div class="project-image">
+            <video src="assets/StaffPanel.mp4" class="project-video" muted autoplay loop playsinline></video>
+            <div class="project-status status-completed">Professional — Live</div>
+            <div class="lightbox-zoom-hint"><i class="fas fa-play-circle"></i></div>
+          </div>
+          <div class="project-content">
+            <div class="project-header">
+              <h3>Staff Panel — Zulu Boutique</h3>
+              <div class="project-links">
+                <a href="https://github.com/RAHULRAJx007/Zulu-Boutique" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="GitHub">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <p class="project-description">Intuitive staff interface for fast billing operations. Optimized for simplicity so non-technical staff can handle transactions smoothly with instant PDF invoicing and WhatsApp sharing.</p>
+            <div class="project-features">
+              <h4>Key Features</h4>
+              <ul>
+                <li><i class="fas fa-check"></i> Fast &amp; seamless billing workflow</li>
+                <li><i class="fas fa-check"></i> Easy product search &amp; selection</li>
+                <li><i class="fas fa-check"></i> Instant discount application</li>
+                <li><i class="fas fa-check"></i> PDF invoice + WhatsApp share</li>
+              </ul>
+            </div>
+            <div class="project-tech">
+              <span>Spring Boot</span><span>Java</span><span>PostgreSQL</span><span>REST API</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+  <!-- ═══ Resume ═══ -->
+  <section class="resume" id="resume">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">My Journey</span><br>
+        <h2 class="section-title"><span class="blue">Resume</span></h2>
+      </header>
+      <div class="resume-container">
+        <div class="resume-preview">
+          <!-- 900×1200 — full resume image -->
+          <img src="assets/RahulAtscv.jpg" alt="Rahul Raj Resume" class="resume-image" loading="lazy" width="900" height="1200">
+          <div class="resume-overlay">
+            <a href="assets/RahulAtscv.jpg" download="Rahul_Raj_Resume.jpg" class="btn btn-blue btn-large">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Certificates ═══ -->
+  <section class="certificates" id="certificates">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">Achievements</span><br>
+        <h2 class="section-title">Professional <span class="red">Certifications</span></h2>
+      </header>
+
+      <div class="certificates-grid">
+
+        <!-- SCOPE India — aspect: 4:3 (wider landscape) -->
+        <article class="certificate-card">
+          <div class="certificate-image-wrapper" style="padding-bottom:75%;">
+            <img src="assets/RahulScopeIndia.jpeg" alt="SCOPE India Internship Certificate" class="certificate-image" loading="lazy">
+            <div class="certificate-overlay">
+              <button class="certificate-view-btn"><i class="fas fa-expand"></i> View</button>
+            </div>
+          </div>
+          <div class="certificate-content">
+            <h3>Intensive Internship in Software Programming</h3>
+            <p class="certificate-issuer"><i class="fas fa-building"></i><span>SCOPE India &amp; Suffix E Solutions</span></p>
+            <p class="certificate-date"><i class="fas fa-calendar-alt"></i><span>Sep 2025 – Feb 2026</span></p>
+            <div class="certificate-tags">
+              <span>Java</span><span>React</span><span>Full Stack</span><span>A+ Grade</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Cloud — standard 4:5 portrait -->
+        <article class="certificate-card">
+          <div class="certificate-image-wrapper">
+            <img src="assets/NM_Certificate_Cloud.jpg" alt="Cloud Services Management Certificate" class="certificate-image" loading="lazy">
+            <div class="certificate-overlay">
+              <button class="certificate-view-btn"><i class="fas fa-expand"></i> View</button>
+            </div>
+          </div>
+          <div class="certificate-content">
+            <h3>Cloud Services Management</h3>
+            <p class="certificate-issuer"><i class="fas fa-building"></i><span>Tamil Nadu Skill Development Corporation</span></p>
+            <p class="certificate-date"><i class="fas fa-calendar-alt"></i><span>July 27, 2025</span></p>
+            <div class="certificate-tags">
+              <span>Oracle</span><span>Cloud Computing</span><span>Naan Mudhalvan</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Game Dev — standard 4:5 -->
+        <article class="certificate-card">
+          <div class="certificate-image-wrapper">
+            <img src="assets/NM_Certificate_GameDev.jpg" alt="Game Development Certificate" class="certificate-image" loading="lazy">
+            <div class="certificate-overlay">
+              <button class="certificate-view-btn"><i class="fas fa-expand"></i> View</button>
+            </div>
+          </div>
+          <div class="certificate-content">
+            <h3>Game Development</h3>
+            <p class="certificate-issuer"><i class="fas fa-building"></i><span>Tamil Nadu Skill Development Corporation</span></p>
+            <p class="certificate-date"><i class="fas fa-calendar-alt"></i><span>November 4, 2025</span></p>
+            <div class="certificate-tags">
+              <span>InGage</span><span>Game Dev</span><span>Naan Mudhalvan</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- IBM SkillsBuild — taller portrait -->
+        <article class="certificate-card">
+          <div class="certificate-image-wrapper" style="padding-bottom:130%;">
+            <img src="assets/NM_Certificate_SkillBuild.jpg" alt="IBM Skillsbuild Certificate" class="certificate-image" loading="lazy">
+            <div class="certificate-overlay">
+              <button class="certificate-view-btn"><i class="fas fa-expand"></i> View</button>
+            </div>
+          </div>
+          <div class="certificate-content">
+            <h3>Naalayathiran — IBM Skillsbuild</h3>
+            <p class="certificate-issuer"><i class="fas fa-building"></i><span>Tamil Nadu Skill Development Corporation</span></p>
+            <p class="certificate-date"><i class="fas fa-calendar-alt"></i><span>October 2, 2025</span></p>
+            <div class="certificate-tags">
+              <span>IBM</span><span>Skillsbuild</span><span>Enterprise Skills</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- XR — standard 4:5 -->
+        <article class="certificate-card">
+          <div class="certificate-image-wrapper">
+            <img src="assets/NM_Certificate_XR.jpg" alt="Industrial Metaverse XR Certificate" class="certificate-image" loading="lazy">
+            <div class="certificate-overlay">
+              <button class="certificate-view-btn"><i class="fas fa-expand"></i> View</button>
+            </div>
+          </div>
+          <div class="certificate-content">
+            <h3>Industrial Metaverse using XR</h3>
+            <p class="certificate-issuer"><i class="fas fa-building"></i><span>Tamil Nadu Skill Development Corporation</span></p>
+            <p class="certificate-date"><i class="fas fa-calendar-alt"></i><span>May 23, 2025</span></p>
+            <div class="certificate-tags">
+              <span>Mixed Reality</span><span>InGage</span><span>Emerging Tech</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact ═══ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <header class="section-header">
+        <span class="section-tag">Get In Touch</span><br>
+        <h2 class="section-title">Let's <span class="blue">Work Together</span></h2>
+      </header>
+      <div class="contact-wrapper">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <div class="contact-text">
+                <span>Email</span>
+                <p>rahulx122003@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-text">
+                <span>Phone</span>
+                <p>+91 70340 06336</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-text">
+                <span>Location</span>
+                <p>Amaravilla, Thiruvananthapuram</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CV Details Panel -->
+        <div class="contact-form-wrapper">
+          <div class="cv-details">
+            <h3 class="cv-title">About this Portfolio</h3>
+            <p class="cv-subtitle">B.E Computer Science graduate focused on production-ready full-stack apps.</p>
+            <div class="cv-list">
+              <div class="cv-row">
+                <span class="cv-k">Tech Stack</span>
+                <span class="cv-v">Java · Spring Boot · React · SQL</span>
+              </div>
+              <div class="cv-row">
+                <span class="cv-k">Focus</span>
+                <span class="cv-v">Clean architecture, secure auth, responsive UI</span>
+              </div>
+              <div class="cv-row">
+                <span class="cv-k">Highlights</span>
+                <span class="cv-v">Projects deployed + real client work</span>
+              </div>
+              <div class="cv-row">
+                <span class="cv-k">Resume</span>
+                <span class="cv-v">
+                  <a href="assets/RahulAtscv.jpg" download="Rahul_Raj_Resume.jpg" class="cv-download">Download CV</a>
+                </span>
+              </div>
+            </div>
+            <div class="cv-actions">
+              <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View Projects</a>
+              <a href="#resume"   class="btn btn-secondary"><i class="fas fa-file-download"></i> Resume</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Rahul Raj . R | All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ═══ Scroll to Top ═══ -->
+  <button id="scrollTop" class="scroll-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ═══ Lightbox ═══ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close viewer"><i class="fas fa-times"></i></button>
+      <button class="lightbox-arrow lightbox-prev" id="lightbox-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <button class="lightbox-arrow lightbox-next" id="lightbox-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lightbox-img">
+        <div class="lightbox-loader" id="lightbox-loader"><i class="fas fa-spinner fa-spin"></i></div>
+      </div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+      <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+  </div>
+
+  <!-- ═══ Script ═══ -->
+  <script src="script.js"></script>
 </body>
 </html>
