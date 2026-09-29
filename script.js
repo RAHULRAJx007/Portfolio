@@ -204,7 +204,7 @@ const revealObs = new IntersectionObserver((entries) => {
   });
 }, revealOpts);
 
-const revealSelectors = '.service-card, .project-card, .about-content, .contact-item, .certificate-card, .about-image-wrapper, .about-stats .stat, .resume-preview';
+const revealSelectors = '.service-card, .project-card, .about-content, .contact-item, .certificate-card, .about-image-wrapper, .about-stats .stat, .resume-preview, .timeline-card, .exp-group-title';
 
 document.querySelectorAll(revealSelectors).forEach((el, i) => {
   el.style.opacity   = '0';
@@ -221,6 +221,34 @@ $$('.project-card').forEach((card, i) => {
   badge.className = 'project-num-badge';
   badge.textContent = String(i + 1).padStart(2, '0');
   card.appendChild(badge);
+});
+
+// ===================================
+// Video Switcher (Admin / Staff in one card)
+// ===================================
+$$('[data-switcher]').forEach((wrap) => {
+  const video = wrap.querySelector('.switcher-video');
+  const tabs = Array.from(wrap.querySelectorAll('.video-tab'));
+  if (!video || !tabs.length) return;
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const src = tab.getAttribute('data-src');
+      if (!src) return;
+      tabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      if (video.getAttribute('src') !== src) {
+        video.pause();
+        video.setAttribute('src', src);
+        video.load();
+        video.play().catch(() => {});
+      }
+    });
+  });
 });
 
 // ===================================
